@@ -80,7 +80,7 @@ they will be able to access the application after creating their account.
 
 > Note: An email will be sent to the invited user.
 
-Parameters:
+### Parameters
 
 * `collaborator.email`: Email address of the collaborator to invite
 

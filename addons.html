@@ -18,6 +18,21 @@ title: Addons
   </thead>
   <tbody>
     <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>unique ID identifying the addon</td>
+    </tr>
+    <tr>
+      <td>provisioned_at</td>
+      <td>date</td>
+      <td>when the addon has been created</td>
+    </tr>
+    <tr>
+      <td>deprovisioned_at</td>
+      <td>date</td>
+      <td>when the addon has been removed/upgraded</td>
+    </tr>
+    <tr>
       <td>resource_id</td>
       <td>string</td>
       <td>resource reference</td>
@@ -40,6 +55,8 @@ title: Addons
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5415beca646173000b015000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"provisioned_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-22T18:55:02.766+01:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deprovisioned_at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="p">,</span><span class="w">
   </span><span class="s2">"plan"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[Markdown description]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"64MB Free tier"</span><span class="p">,</span><span class="w">
@@ -77,6 +94,8 @@ title: Addons
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"addons"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
 	 </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5415beca646173000b015000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"provisioned_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-22T18:55:02.766+01:00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"deprovisioned_at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="p">,</span><span class="w">
          </span><span class="s2">"plan"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[Markdown description]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"display_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"64MB Free tier"</span><span class="p">,</span><span class="w">

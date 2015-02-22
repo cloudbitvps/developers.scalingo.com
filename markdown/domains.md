@@ -208,7 +208,7 @@ Returns 201 Created
 
 `PATCH https://api.scalingo.com/v1/apps/[:app]/domains/[:domain_id]`
 
-Parameters
+### Parameters
 
 * `domain.tlscert` - optional: SSL Certificate you want to associate with the domain
 * `domain.tlskey` - optional: Private key used to create the SSL certificate

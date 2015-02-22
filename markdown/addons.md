@@ -5,11 +5,14 @@
 **Addon attributes**
 
 {:.table}
-| field          | type   | description                                   |
-| -------------- | ------ | --------------------------------------------- |
-| resource_id    | string | resource reference                            |
-| plan           | object | embedded reference to Plan resource           |
-| addon_provider | object | embedded reference to AddonProvider resource  |
+| field            | type   | description                                   |
+| ---------------- | ------ | --------------------------------------------- |
+| id               | string | unique ID identifying the addon               |
+| provisioned_at   | date   | when the addon has been created               |
+| deprovisioned_at | date   | when the addon has been removed/upgraded      |
+| resource_id      | string | resource reference                            |
+| plan             | object | embedded reference to Plan resource           |
+| addon_provider   | object | embedded reference to AddonProvider resource  |
 
 ||| col |||
 
@@ -18,6 +21,8 @@ Example object:
 ```json
 {
   "id" : "5415beca646173000b015000",
+  "provisioned_at": "2015-02-22T18:55:02.766+01:00",
+  "deprovisioned_at": nil,
   "plan" : {
     "description" : "[Markdown description]",
     "display_name" : "64MB Free tier",
@@ -58,6 +63,8 @@ Returns 201 Created
 {
     "addons": [{
 	 "id" : "5415beca646173000b015000",
+         "provisioned_at": "2015-02-22T18:55:02.766+01:00",
+         "deprovisioned_at": nil,
          "plan" : {
             "description" : "[Markdown description]",
             "display_name" : "64MB Free tier",
