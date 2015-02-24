@@ -7,6 +7,8 @@ layout: default
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="introduction">Introduction</h2>
 
+<p>The Scalingo V1 API is a publicly available interface allowing developers to control Scalingo’s entire cloud computing platform and access to the rich Scalingo dataset. The interface is stable and currently used by the Scalingo <a href="http://cli.scalingo.com">command line client</a> (written in Go) and <a href="https://my.scalingo.com">dashboard</a> (an EmberJS app). However, changes are occasionally made to improve performance and enhance features. See the changelog for more details.</p>
+
 <p>The current API version is the <strong>v1</strong>. All the endpoints are prefixed by <code class="highlighter-rouge">/v1</code>.
 It’s only available through HTTPS: it’s TLS, or nothing.</p>
 
@@ -224,7 +226,7 @@ key may be plural if a collection of items is returned.</p>
 <p>The JSON you’ve sent in the payload is is wrongly formatted.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\ </span>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
   -X POST https://api.scalingo.com/v1/users/sign_in -d <span class="s1">'{"user": {'</span>
 </code></pre>
 </div>
@@ -292,7 +294,7 @@ key may be plural if a collection of items is returned.</p>
 <p>Invalid data were sent in the payload.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\ </span>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
   -X POST https://api.scalingo.com/v1/apps -d <span class="se">\</span>
   <span class="s1">'{
     "app" : {

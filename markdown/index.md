@@ -4,6 +4,8 @@
 
 ## Introduction
 
+The Scalingo V1 API is a publicly available interface allowing developers to control Scalingo's entire cloud computing platform and access to the rich Scalingo dataset. The interface is stable and currently used by the Scalingo [command line client](http://cli.scalingo.com) (written in Go) and [dashboard](https://my.scalingo.com) (an EmberJS app). However, changes are occasionally made to improve performance and enhance features. See the changelog for more details.
+
 The current API version is the __v1__. All the endpoints are prefixed by `/v1`.
 It's only available through HTTPS: it's TLS, or nothing.
 
@@ -242,7 +244,7 @@ The JSON you've sent in the payload is is wrongly formatted.
 ||| col |||
 
 ```shell
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH_TOKEN" \ 
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH_TOKEN" \
   -X POST https://api.scalingo.com/v1/users/sign_in -d '{"user": {'
 ```
 
@@ -319,7 +321,7 @@ Invalid data were sent in the payload.
 ||| col |||
 
 ```shell
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH_TOKEN" \ 
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH_TOKEN" \
   -X POST https://api.scalingo.com/v1/apps -d \
   '{
     "app" : {
