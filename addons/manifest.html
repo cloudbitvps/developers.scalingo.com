@@ -1,0 +1,35 @@
+---
+layout: addons
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="addon-definition-manifest">Addon definition manifest</h1>
+
+<p>To add an addon our our platorm, you have to write a manifest
+defining how we are going to communicate with your services.
+The manifest is not strictly identical to Heroku but is quite,
+of course if you need to modify anything, you just have ton contact
+us. <a href="addons@scalingo.com">mailto:addons@scalingo.com</a></p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example manifest:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Addon"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username-for-basic-auth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samyoiHissowdOnHugyorOidepguJa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sso_salt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esidTavOnreboudWavwoadBildyon3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//cdn.myaddon.com/logo.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This addon is providing an awesome tool"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"# Example Addon\n## What we provide\n This is an awesome markdown description"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"optional_config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"production"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://myaddon.com/resources"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div>
