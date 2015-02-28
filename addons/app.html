@@ -1,0 +1,125 @@
+---
+layout: addons
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="app-addon-api">App Addon API</h1>
+
+<p>This API is available for addon providers to get information about the apps
+which have provisioned their addon.</p>
+
+<p>All <a href="/">the rules</a> which apply to the global API are also existing for these
+endpoints, except the authentication.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="authentication">Authentication</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>To authenticate your request, you need to use HTTP basic auth with the user
+and password defined in your addon manifest.</p>
+
+<p>Example: <code class="highlighter-rouge">https://user:password@api.scalingo.com/v1/provider/apps</code></p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="get-applications-which-are-using-the-addon">Get applications which are using the addon</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/provider/apps</code></p>
+
+<blockquote>
+  <p>Feature: Pagination</p>
+</blockquote>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u <span class="nv">$USER</span>:<span class="nv">$PASSWORD</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/provider/apps
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"addon_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abcdef"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-id-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"addon_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abcdef"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app456@heroku.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="get-a-precise-application-which-has-provisioned-the-addon">Get a precise application which has provisioned the addon</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/provider/apps/[:id]</code></p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u <span class="nv">$USER</span>:<span class="nv">$PASSWORD</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/provider/apps/app-id-1
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"addon_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abcdef"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-id-2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"VARIABLE_NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="update-app-configuration">Update app configuration</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">PATCH https://api.scalingo.com/v1/provider/apps/[:id]</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">config</code>: <code class="highlighter-rouge">object</code> - hash of the variables to modify</li>
+</ul>
+
+<p>You can only update the variables defined in your manifest obviously,
+the application will be restart after the modification.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u <span class="nv">$USER</span>:<span class="nv">$PASSWORD</span> <span class="se">\</span>
+  -X PATCH https://api.scalingo.com/v1/provider/apps/app-id-1 -d <span class="se">\</span>
+  <span class="s1">'{
+    "config": {
+      "VARIABLE_NAME": "NEW_VALUE"
+    }
+  }'</span>
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"addon_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abcdef"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-id-1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"VARIABLE_NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW_VALUE"</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div>
