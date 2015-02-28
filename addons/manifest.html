@@ -4,13 +4,62 @@ layout: addons
 
 <div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="addon-definition-manifest">Addon definition manifest</h1>
 
-<p>To add an addon our our platorm, you have to write a manifest
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="definition">Definition</h2>
+
+<p>To add an addon to our platorm, you have to write a manifest
 defining how we are going to communicate with your services.
 The manifest is not strictly identical to Heroku but is quite,
 of course if you need to modify anything, you just have ton contact
 us. <a href="addons@scalingo.com">mailto:addons@scalingo.com</a></p>
 
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="structure">Structure</h2>
+
+<p>The manifest is simply a JSON file with the following structure:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">name</code>: Name of the addon, it will be display like this in the addon
+list https://scalingo.com/addons or in the dashboard.</li>
+  <li><code class="highlighter-rouge">username</code> and <code class="highlighter-rouge">password</code>: We will use these credentials in our requests
+using HTTP Basic Auth, to authenticate ourselves.</li>
+  <li>
+    <p><code class="highlighter-rouge">sso_salt</code>: When a user wants to access the dashboard of its addon, we
+will build a token which will be send to authenticate their request.
+Finally a request is done to the <code class="highlighter-rouge">production.sso_url</code> URL:</p>
+
+    <p>Example: <code class="highlighter-rouge">https://dashboard.myaddon.com/sso?id=&lt;addon_id&gt;&amp;timestamp=&lt;timestamp&gt;&amp;token=&lt;token&gt;</code></p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  <span class="n">token</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA1</span><span class="p">.</span><span class="nf">hexdigest</span> <span class="s2">"</span><span class="si">#{</span><span class="n">addon_id</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">sso_salt</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">"</span>
+</code></pre>
+    </div>
+
+    <p>As there are only you, the provider, and us as platform which know the <code class="highlighter-rouge">sso_salt</code> and
+that both the two others parameters are shared, you are able to ensure that the request
+is authenticated.</p>
+  </li>
+  <li><code class="highlighter-rouge">logo_url</code>: Picture to display as logo of your addon (100x100)</li>
+  <li><code class="highlighter-rouge">short_description</code>: Summary of one sentence of the purpose of the addon</li>
+  <li><code class="highlighter-rouge">description</code>: Complete description in markdown of your addon</li>
+  <li><code class="highlighter-rouge">config_vars</code>: List of the environment variables you will be able to set on the applications
+which provisioned your addon.</li>
+  <li><code class="highlighter-rouge">production.base_url</code>: URL of your addon which will be hit by our services to
+provision/deprovision/update our users addons.</li>
+  <li><code class="highlighter-rouge">production.sso_url</code>: Your addon may include a dashboard, this link is where the user is
+redirected when trying to access it from its application dashboard.</li>
+  <li><code class="highlighter-rouge">test.base_url</code>: When you’re developing your addon and you want to simulate requests</li>
+  <li><code class="highlighter-rouge">test_sso_url</code>: Exactly the same as <code class="highlighter-rouge">test.base_url</code> but for the SSO authentication endpoint</li>
+</ul>
+
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example of token checking in Ruby:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA1</span><span class="p">.</span><span class="nf">hexdigest</span> <span class="s2">"</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"SSO_SALT"</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:timestamp</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="ss">:token</span><span class="p">]</span>
+  <span class="nb">puts</span> <span class="s2">"request is correctly authenticated"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
 <p>Example manifest:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -21,15 +70,73 @@ us. <a href="addons@scalingo.com">mailto:addons@scalingo.com</a></p>
   </span><span class="s2">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//cdn.myaddon.com/logo.png"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This addon is providing an awesome tool"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"# Example Addon\n## What we provide\n This is an awesome markdown description"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"optional_config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"EXAMPLE_VARIABLE_1"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"production"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://myaddon.com/resources"</span><span class="w">
+    </span><span class="s2">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://myaddon.com/resources"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sso_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dashboard.myaddon.com/sso"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
+    </span><span class="s2">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/resources"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sso_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3001/sso"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="testing-your-api-and-manifest">Testing your API and Manifest</h2>
+
+<p>You can download this tool to test your addon:</p>
+
+<p><a href="https://github.com/Scalingo/scalingo-addon-api-tester">https://github.com/Scalingo/scalingo-addon-api-tester</a></p>
+
+<p>This tool will let you test the <a href="/addons">different endpoints</a> your addon
+service.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Usage example:</p>
+
+<p>Invalid manifest:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ scalingo-addon-api-tester -m ./manifest-invalid.json
+Errors in the manifest:
+  → password can't be blank
+  → config_vars should have at least one element environment variable
+</code></pre>
+</div>
+
+<hr />
+
+<p>Usage with a valid manifest:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="c"># Make a request to provision an addon (with the first plan in the manifest)</span>
+<span class="gp">$ </span>scalingo-addon-api-tester provision
+→ OK
+
+<span class="gp">$ </span><span class="c"># Make a request to provision an addon with a given plan</span>
+<span class="gp">$ </span>scalingo-addon-api-tester provision --plan premium
+→ OK
+
+<span class="gp">$ </span><span class="c"># List the provisioned addons in the locale cache of the tool</span>
+<span class="gp">$ </span>scalingo-addon-api-tester list
+- addon-id-1 → free
+- addon-id-2 → premium
+
+<span class="gp">$ </span><span class="c"># Make a request to update an addon to a given plan</span>
+<span class="gp">$ </span>scalingo-addon-api-tester update --plan premium addon-id-1
+→ OK
+
+<span class="c"># # List all addons (and see the changes)</span>
+<span class="gp">$ </span>scalingo-addon-api-tester list
+- addon-id-1 → premium
+- addon-id-2 → premium
+
+<span class="gp">$ </span><span class="c"># Make a request to deprovision an addon</span>
+<span class="gp">$ </span>scalingo-addon-api-tester deprovision addon-id-2
+→ OK
+
+<span class="gp">$ </span><span class="c"># List addons to check everything is OK</span>
+<span class="gp">$ </span>scalingo-addon-api-tester list
+- addon-id-1 → premium
+</code></pre>
 </div>
 </div></div>

@@ -38,6 +38,34 @@ Status __201 Created__ or 200 OK (Heroku compatibility)
 * `config`: `object - optional` - Hash of the configuration variable to inject
   in the application environment
 
+||| col |||
+
+Request:
+
+```
+POST https://youraddon.com/resources
+```
+
+```json
+{
+  "plan": "free",
+  "app_id": "app-name-id",
+  "options": {}
+}
+```
+
+Response:
+
+Status: 201 Created
+
+```json
+{
+  "id": "addon-id-1",
+  "config_vars": {"EXAMPLE_VAR1": "VALUE"},
+  "message": "Addon has been provisioned"
+}
+```
+
 --- row ---
 
 ## Plan modification
@@ -58,6 +86,33 @@ Status __200 OK__
 
 * `message`: `string - optional` - Message to display to the user after the plan change
 * `config`: `object - optional` - Configuration variable to modify once the resource has been upgraded
+
+||| col |||
+
+Request:
+
+```
+PUT https://youraddon.com/resources/addon-id-1
+```
+
+```json
+{
+  "plan": "premium",
+  "options": {}
+}
+```
+
+Response:
+
+Status: 200 OK
+
+```json
+{
+  "config_vars": {"EXAMPLE_VAR1": "VALUE_UPDATED"},
+  "message": "Addon has been updated"
+}
+```
+
 
 --- row ---
 

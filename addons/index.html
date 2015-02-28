@@ -44,7 +44,34 @@ after the provisioning</li>
 in the application environment</li>
 </ul>
 
-</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST https://youraddon.com/resources
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-name-id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Response:</p>
+
+<p>Status: 201 Created</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addon-id-1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"EXAMPLE_VAR1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">},</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon has been provisioned"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="plan-modification">Plan modification</h2>
 
 <p>When a user want to choose a new plan for its addon, this endpoint is called.</p>
@@ -67,7 +94,32 @@ in the application environment</li>
   <li><code class="highlighter-rouge">config</code>: <code class="highlighter-rouge">object - optional</code> - Configuration variable to modify once the resource has been upgraded</li>
 </ul>
 
-</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>PUT https://youraddon.com/resources/addon-id-1
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Response:</p>
+
+<p>Status: 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"EXAMPLE_VAR1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE_UPDATED"</span><span class="p">},</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon has been updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="addon-deprovisioning">Addon deprovisioning</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>

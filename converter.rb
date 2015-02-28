@@ -17,7 +17,7 @@ end
 
 def toc_link(heading, output_filename)
   heading_id = heading[:id] || "#"
-  content_tag(:a, heading.text, href: output_filename + "#" + heading_id)
+  content_tag(:a, heading.text, href: File.basename(output_filename) + "#" + heading_id)
 end
 
 def toc_item(heading, output_filename)
