@@ -1,0 +1,131 @@
+---
+layout: addons
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="addon-provider-api">Addon provider API</h1>
+
+<p><span style="background-color:red;color:white; display: inline-block; padding:5px; margin-bottom: 10px;"><i class="fa fa-exclamation-triangle"></i> This is a Work In Progress. Take this documentation with a grain of salt until we announced it officially.</span></p>
+
+<p>To plug your service to our platofmr you need to define howe we can communicate
+with it. We are expecting a few endpoints to be present on your side, they are
+detailed in this page.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="addon-provisioning">Addon provisioning</h2>
+
+<p>Provisioning consists in allocating what your service is providing. For
+instance, a Database as a Service would create and initialize the database and
+return the correct credentials. The user should be able to use the addon almost
+instantly.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">POST https://user:password@addonhost.com/scalingo/resources</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">plan</code>: <code class="highlighter-rouge">string - mandatory</code> - Name of the requested plan by the user</li>
+  <li><code class="highlighter-rouge">app_id</code>: <code class="highlighter-rouge">string - mandatory</code> - ID of the application that’s the ID you have to use to update the configuration.</li>
+  <li><code class="highlighter-rouge">options</code>: <code class="highlighter-rouge">object - optional</code> - Hash of the option defined for a given plan (see the <a href="manifest">/addons/manifest</a>)</li>
+</ul>
+
+<p>Response:</p>
+
+<p>Status <strong>201 Created</strong> or 200 OK (Heroku compatibility)</p>
+
+<ul>
+  <li><code class="highlighter-rouge">id</code>: <code class="highlighter-rouge">string - mandatory</code> - ID of the provisioned resource, that is the
+identifier we will user in our request to update or deprovision the addon, it
+has to be unique and to identify clearly the resource on your side. It shall
+not be longer than 255 characters</li>
+  <li><code class="highlighter-rouge">message</code>: <code class="highlighter-rouge">string - optional</code> - Message which will be displayed to the user
+after the provisioning</li>
+  <li><code class="highlighter-rouge">config</code>: <code class="highlighter-rouge">object - optional</code> - Hash of the configuration variable to inject
+in the application environment</li>
+</ul>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST https://youraddon.com/resources
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-name-id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Response:</p>
+
+<p>Status: 201 Created</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addon-id-1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"EXAMPLE_VAR1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">},</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon has been provisioned"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="plan-modification">Plan modification</h2>
+
+<p>When a user want to choose a new plan for its addon, this endpoint is called.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">PUT https://user:password@addonhost.com/scalingo/resources/:id</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">plan</code>: <code class="highlighter-rouge">string - mandatory</code> - Plan requested by the user</li>
+</ul>
+
+<p>Response:</p>
+
+<p>Status <strong>200 OK</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">message</code>: <code class="highlighter-rouge">string - optional</code> - Message to display to the user after the plan change</li>
+  <li><code class="highlighter-rouge">config</code>: <code class="highlighter-rouge">object - optional</code> - Configuration variable to modify once the resource has been upgraded</li>
+</ul>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>PUT https://youraddon.com/resources/addon-id-1
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Response:</p>
+
+<p>Status: 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"config_vars"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"EXAMPLE_VAR1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE_UPDATED"</span><span class="p">},</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon has been updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="addon-deprovisioning">Addon deprovisioning</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">DELETE https://user:password@addonhost.com/scalingo/resources/:id</code></p>
+
+<p>Response:</p>
+
+<p>Status <strong>204 No content</strong></p>
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div>
