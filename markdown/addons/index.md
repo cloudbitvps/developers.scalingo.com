@@ -2,7 +2,7 @@
 
 <span style="background-color:red;color:white; display: inline-block; padding:5px; margin-bottom: 10px;"><i class="fa fa-exclamation-triangle"></i> This is a Work In Progress. Take this documentation with a grain of salt until we announced it officially.</span>
 
-To plug your service to our platofmr you need to define howe we can communicate
+To plug your service to our platorm you need to define how we can communicate
 with it. We are expecting a few endpoints to be present on your side, they are
 detailed in this page.
 
