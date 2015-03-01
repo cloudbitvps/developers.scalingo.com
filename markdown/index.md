@@ -6,7 +6,7 @@
 
 The Scalingo V1 API is a publicly available interface allowing developers to control Scalingo's entire cloud computing platform and access to the rich Scalingo dataset. The interface is stable and currently used by the Scalingo [command line client](http://cli.scalingo.com) (written in Go) and [dashboard](https://my.scalingo.com) (an EmberJS app). However, changes are occasionally made to improve performance and enhance features. See the changelog for more details.
 
-If you're an addon provider, you'd better go to [our addon provider API](http://developers.scalingo.com/addons-provider-api) for you to interface your service with Scalingo's platform.
+If you're an addon provider, you'd better go to [our addon provider API](http://developers.scalingo.com/addon-provider-api) for you to interface your service with Scalingo's platform.
 
 The current API version is the __v1__. All the endpoints are prefixed by `/v1`.
 It's only available through HTTPS: it's TLS, or nothing.

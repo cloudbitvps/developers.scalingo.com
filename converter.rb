@@ -99,7 +99,7 @@ def build_directory(dir)
 
     File.open(output_filename, "w+") do |f|
       f.puts '---'
-      f.puts "layout: #{ dir.end_with?("addons") ? "addons" : "default" }"
+      f.puts "layout: #{ dir.end_with?("addon-provider-api") ? "addon-provider-api" : "default" }"
       f.puts "title: #{ resource_name }" if resource_name
       f.puts '---'
       f.puts ''

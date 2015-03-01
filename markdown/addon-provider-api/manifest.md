@@ -85,7 +85,7 @@ You can download this tool to test your addon:
 
 [https://github.com/Scalingo/scalingo-addon-api-tester](https://github.com/Scalingo/scalingo-addon-api-tester)
 
-This tool will let you test the [different endpoints](/addons) your addon
+This tool will let you test the [different endpoints](/addon-provider-api) your addon
 service.
 
 ||| col |||

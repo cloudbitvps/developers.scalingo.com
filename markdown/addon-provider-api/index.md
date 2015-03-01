@@ -23,7 +23,7 @@ Parameters:
 
 * `plan`: `string - mandatory` - Name of the requested plan by the user
 * `app_id`: `string - mandatory` - ID of the application that's the ID you have to use to update the configuration.
-* `options`: `object - optional` - Hash of the option defined for a given plan (see the [/addons/manifest](manifest))
+* `options`: `object - optional` - Hash of the option defined for a given plan (see the [/addon-provider-api/manifest](manifest))
 
 Response:
 
