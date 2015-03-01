@@ -4,9 +4,17 @@
 
 ## Introduction
 
-The Scalingo V1 API is a publicly available interface allowing developers to control Scalingo's entire cloud computing platform and access to the rich Scalingo dataset. The interface is stable and currently used by the Scalingo [command line client](http://cli.scalingo.com) (written in Go) and [dashboard](https://my.scalingo.com) (an EmberJS app). However, changes are occasionally made to improve performance and enhance features. See the changelog for more details.
+The Scalingo V1 API is a publicly available interface allowing developers to
+control Scalingo's entire cloud computing platform and access to the rich
+Scalingo dataset. The interface is stable and currently used by the Scalingo
+[command line client](http://cli.scalingo.com) (written in Go) and
+[dashboard](https://my.scalingo.com) (an EmberJS app). However, changes are
+occasionally made to improve performance and enhance features. See the
+changelog for more details.
 
-If you're an addon provider, you'd better go to [our addon provider API](http://developers.scalingo.com/addon-provider-api) for you to interface your service with Scalingo's platform.
+If you're an addon provider, you'd better go to [our addon provider
+API](http://developers.scalingo.com/addon-provider-api) for you to interface
+your service with Scalingo's platform.
 
 The current API version is the __v1__. All the endpoints are prefixed by `/v1`.
 It's only available through HTTPS: it's TLS, or nothing.
@@ -16,9 +24,9 @@ will update endpoints and create new ones. But you can be sure we won't break
 the existing. If any major change about the way JSON is structured, we will
 keep the right to release a __v2__ and so forth.
 
-In any case, we will communicate through our [blog](http://blog.scalingo.com),
-[changelog](http://changelog.scalingo.com) and [twitter](https://twitter.com/ScalingoHQ)
-when any change occurs on the API.
+When any change is applied to the API, it will be displayed in ths [changelog
+section](/#changelog) of this documentation and on our [changelog
+website](http://changelog.scalingo.com)
 
 ||| col |||
 
@@ -289,6 +297,30 @@ Returns 402 Payment Required if user is not allowed to create a new app.
 
 --- row ---
 
+### Resource not found - 404 Not found
+
+--- row ---
+
+When you're doing a request to an invalid resource
+
+||| col |||
+
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH_TOKEN" \
+  -X GET https://api.scalingo.com/v1/apps/123
+```
+
+Returns HTTP/1.1 404 Not Found
+
+```json
+{
+  "resource": "app",
+  "error" : "not found"
+}
+```
+
+--- row ---
+
 ### Invalid field - 422 Unprocessable Entity
 
 --- row ---
@@ -425,5 +457,42 @@ This request returns the events 40 to 60.
 		"total_pages": 12,
 		"total_count": 240
 	}
+}
+```
+
+--- row ---
+
+# Changelog
+
+* Sunday 1st March:
+  
+  The 404 not found error got a new field `resource` to define the resource
+  which has not been found.
+
+||| col |||
+
+Example request:
+
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
+  -X GET https://api.scalingo.com/v1/apps/123
+```
+
+Response 404 Not found
+
+Before:
+
+```json
+{
+  "error": "not found"
+}
+```
+
+After:
+
+```json
+{
+  "resource": "app",
+  "error": "not found"
 }
 ```

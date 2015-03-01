@@ -7,9 +7,17 @@ layout: default
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="introduction">Introduction</h2>
 
-<p>The Scalingo V1 API is a publicly available interface allowing developers to control Scalingo’s entire cloud computing platform and access to the rich Scalingo dataset. The interface is stable and currently used by the Scalingo <a href="http://cli.scalingo.com">command line client</a> (written in Go) and <a href="https://my.scalingo.com">dashboard</a> (an EmberJS app). However, changes are occasionally made to improve performance and enhance features. See the changelog for more details.</p>
+<p>The Scalingo V1 API is a publicly available interface allowing developers to
+control Scalingo’s entire cloud computing platform and access to the rich
+Scalingo dataset. The interface is stable and currently used by the Scalingo
+<a href="http://cli.scalingo.com">command line client</a> (written in Go) and
+<a href="https://my.scalingo.com">dashboard</a> (an EmberJS app). However, changes are
+occasionally made to improve performance and enhance features. See the
+changelog for more details.</p>
 
-<p>If you’re an addon provider, you’d better go to <a href="http://developers.scalingo.com/addon-provider-api">our addon provider API</a> for you to interface your service with Scalingo’s platform.</p>
+<p>If you’re an addon provider, you’d better go to <a href="http://developers.scalingo.com/addon-provider-api">our addon provider
+API</a> for you to interface
+your service with Scalingo’s platform.</p>
 
 <p>The current API version is the <strong>v1</strong>. All the endpoints are prefixed by <code class="highlighter-rouge">/v1</code>.
 It’s only available through HTTPS: it’s TLS, or nothing.</p>
@@ -19,9 +27,9 @@ will update endpoints and create new ones. But you can be sure we won’t break
 the existing. If any major change about the way JSON is structured, we will
 keep the right to release a <strong>v2</strong> and so forth.</p>
 
-<p>In any case, we will communicate through our <a href="http://blog.scalingo.com">blog</a>,
-<a href="http://changelog.scalingo.com">changelog</a> and <a href="https://twitter.com/ScalingoHQ">twitter</a>
-when any change occurs on the API.</p>
+<p>When any change is applied to the API, it will be displayed in ths <a href="/#changelog">changelog
+section</a> of this documentation and on our <a href="http://changelog.scalingo.com">changelog
+website</a></p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Base URL:</p>
@@ -268,6 +276,27 @@ key may be plural if a collection of items is returned.</p>
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h3 id="resource-not-found---404-not-found">Resource not found - 404 Not found</h3>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>When you’re doing a request to an invalid resource</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/apps/123
+</code></pre>
+</div>
+
+<p>Returns HTTP/1.1 404 Not Found</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h3 id="invalid-field---422-unprocessable-entity">Invalid field - 422 Unprocessable Entity</h3>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
@@ -396,6 +425,45 @@ or next page.</p>
 		</span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
 		</span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w">
 	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h1 id="changelog">Changelog</h1>
+
+<ul>
+  <li>
+    <p>Sunday 1st March:</p>
+
+    <p>The 404 not found error got a new field <code class="highlighter-rouge">resource</code> to define the resource
+which has not been found.</p>
+  </li>
+</ul>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH</span><span class="s2">"</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/apps/123
+</code></pre>
+</div>
+
+<p>Response 404 Not found</p>
+
+<p>Before:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>After:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
