@@ -4,6 +4,9 @@ To plug your service to our platorm you need to define how we can communicate
 with it. We are expecting a few endpoints to be present on your side, they are
 detailed in this page.
 
+In this page, examples are using the endpoint `addonhost.com/scalingo/resources`,
+but this is completely confirgurable thanks to [the manifest](/addon-provider-api/manifest.html).
+
 --- row ---
 
 ## Addon provisioning
