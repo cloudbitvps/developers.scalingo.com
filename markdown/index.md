@@ -464,7 +464,7 @@ This request returns the events 40 to 60.
 
 # Changelog
 
-* Sunday 1st March:
+* Sunday 1st March 2015:
   
   The 404 not found error got a new field `resource` to define the resource
   which has not been found.
