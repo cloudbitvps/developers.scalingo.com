@@ -139,7 +139,18 @@ Returns 201 Created
 
 ```json
 {
-  "authentication_token":"abcdef0123456789-"
+  "authentication_token":"abcdef0123456789-",
+  "user": {
+    "id":"51dba73fedfe42612000002",
+    "email":"hello@scalingo.com",
+    "username":"leo",
+    "first_name":"Léo",
+    "last_name":"Unbekandt",
+    "company":"Scalingo",
+    "location":"Strasbourg France",
+    "email_newsletter":true,
+    "email_personal_advice":true
+  }
 }
 ```
 
@@ -494,5 +505,43 @@ After:
 {
   "resource": "app",
   "error": "not found"
+}
+```
+
+* Friday 6th March 2015:
+
+  The `user` object has been embedded to the the result of the `/users/sign_in` endpoint
+
+||| col |||
+
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
+  -X POST https://api.scalingo.com/v1/users/sign_in -d \
+  '{
+    "user": {
+      "login": "test-user",
+      "password": "super-secret"
+    }
+  }'
+```
+
+Response 404 Not found
+
+Before:
+
+```json
+{
+  "authentication_token": "0123456789abcdef"
+}
+```
+
+After:
+
+```js
+{
+  "authentication_token": "0123456789abcdef",
+  "user": {
+    // user model
+  }
 }
 ```
