@@ -133,7 +133,18 @@ Basic HTTP Auth. The API is HTTPS only, so credentials are always sent encrypted
 <p>Returns 201 Created</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"authentication_token"</span><span class="p">:</span><span class="s2">"abcdef0123456789-"</span><span class="w">
+  </span><span class="s2">"authentication_token"</span><span class="p">:</span><span class="s2">"abcdef0123456789-"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"51dba73fedfe42612000002"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"hello@scalingo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"leo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Léo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Unbekandt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"Scalingo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="s2">"Strasbourg France"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_newsletter"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_personal_advice"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -442,10 +453,14 @@ which has not been found.</p>
 </ul>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
-<p>Example request:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s1">'Content-Type: application/json'</span> -H <span class="s1">'Accept: application/json'</span> -u <span class="s2">":</span><span class="nv">$AUTH</span><span class="s2">"</span> <span class="se">\</span>
-  -X GET https://api.scalingo.com/v1/apps/123
+  -X POST https://api.scalingo.com/v1/users/sign_in -d <span class="se">\</span>
+  <span class="s1">'{
+    "user": {
+      "login": "test-user",
+      "password": "super-secret"
+    }
+  }'</span>
 </code></pre>
 </div>
 
@@ -454,17 +469,19 @@ which has not been found.</p>
 <p>Before:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
+  </span><span class="s2">"authentication_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 
 <p>After:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"authentication_token"</span><span class="err">:</span> <span class="s2">"0123456789abcdef"</span><span class="p">,</span>
+  <span class="s2">"user"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="c1">// user model</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 </div></div>

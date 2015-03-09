@@ -49,6 +49,16 @@ provision/deprovision/update our users addons.</li>
 redirected when trying to access it from its application dashboard.</li>
   <li><code class="highlighter-rouge">test.base_url</code>: When you’re developing your addon and you want to simulate requests</li>
   <li><code class="highlighter-rouge">test_sso_url</code>: Exactly the same as <code class="highlighter-rouge">test.base_url</code> but for the SSO authentication endpoint</li>
+  <li><code class="highlighter-rouge">plans</code>: List of the different plans proposed by your addon</li>
+</ul>
+
+<p>Structure of the plan object:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">name</code>: Canonical name of the plan</li>
+  <li><code class="highlighter-rouge">display_name</code>: Name displayed to the user of the plan</li>
+  <li><code class="highlighter-rouge">price</code>: Price in euros for 30 days</li>
+  <li><code class="highlighter-rouge">description</code>: Markdown description of the plan</li>
 </ul>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
@@ -78,7 +88,22 @@ redirected when trying to access it from its application dashboard.</li>
   </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/resources"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sso_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3001/sso"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"plans"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free Tier addon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Markdown description of the plan"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Premium addon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Markdown description of the plan"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 

@@ -44,6 +44,14 @@ The manifest is simply a JSON file with the following structure:
   redirected when trying to access it from its application dashboard.
 * `test.base_url`: When you're developing your addon and you want to simulate requests
 * `test_sso_url`: Exactly the same as `test.base_url` but for the SSO authentication endpoint
+* `plans`: List of the different plans proposed by your addon
+
+Structure of the plan object:
+
+* `name`: Canonical name of the plan
+* `display_name`: Name displayed to the user of the plan
+* `price`: Price in euros for 30 days
+* `description`: Markdown description of the plan
 
 ||| col |||
 
@@ -74,7 +82,22 @@ Example manifest:
   "test": {
     "base_url": "http://localhost:3000/resources",
     "sso_url": "https://localhost:3001/sso"
-  }
+  },
+  "plans": [
+    {
+      "name": "free",
+      "display_name": "Free Tier addon",
+      "price": 0.0,
+      "description": "Markdown description of the plan"
+    },
+    {
+      "name": "premium",
+      "display_name": "Premium addon",
+      "price": 30.0,
+      "description": "Markdown description of the plan"
+    }
+  ]
+}
 ```
 
 --- row ---
