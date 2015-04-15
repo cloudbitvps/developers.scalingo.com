@@ -28,6 +28,8 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
+> Last update: Wednesday 15th April 2015
+
 ||| col |||
 
 Base URL:
@@ -474,6 +476,54 @@ This request returns the events 40 to 60.
 --- row ---
 
 # Changelog
+
+--- row
+
+* Wednesday 15th April 2015:
+
+  Additional `size` field in `/apps/:app/scale` for vertical scaling
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
+  -X POST 'https://api.scalingo.com/v1/apps/example-app/scale' -d \
+  '{
+    "containers": [
+      {
+        "name": "web",
+        "amount": 2,
+        "size": "L"
+      }
+    ]
+  }'
+```
+
+Returns 202 Accepted (Asynchronous task)
+Headers:
+  * `Location`: 'https://api.scalingo.com/v1/apps/example-app/operations/52fd2357356330032b080000'
+
+```json
+{
+  "containers": [
+    {
+      "id": "52fd2457356330032b020000",
+      "name": "web",
+      "amount": 2,
+      "size": "L"
+    }, {
+      "id": "52fd235735633003210a0001",
+      "name": "worker",
+      "amount": 1,
+      "size": "M",
+    }
+  ]
+}
+```
+
+--- row ---
 
 * Sunday 1st March 2015:
   

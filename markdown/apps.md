@@ -197,10 +197,12 @@ not currently scaled.
   Each `containers`:
   * `container.name`: Name of the container you want to scale
   * `container.amount`: Final amount of container of this type
+  * `container.size` (optional): Target size of container. (not changed if empty)
+    Size documentation: http://doc.scalingo.com/internals/container-sizes
 
 ### Free usage limit
 
-You can only have 1 'web' container without having defined [a payment
+You can only have 1 small or medium 'web' container without having defined [a payment
 method](https://my.scalingo.com/apps/billing).
 
 ### Limit
@@ -219,7 +221,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH
     "containers": [
       {
         "name": "web",
-        "amount": 2
+        "amount": 2,
+        "size": "L"
       }
     ]
   }'
@@ -235,11 +238,13 @@ Headers:
     {
       "id": "52fd2457356330032b020000",
       "name": "web",
-      "amount": 2
+      "amount": 2,
+      "size": "L"
     }, {
       "id": "52fd235735633003210a0001",
       "name": "worker",
-      "amount": 1
+      "amount": 1,
+      "size": "M",
     }
   ]
 }
