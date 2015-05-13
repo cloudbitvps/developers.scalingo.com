@@ -477,6 +477,21 @@ This request returns the events 40 to 60.
 
 # Changelog
 
+--- row ---
+
+* Wednesday 13rd May 2015:
+
+  Additional `links` attribute in deployments
+
+```js
+{
+   // ...
+   "links": {
+      "output": "https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
+   }  
+}
+```
+
 --- row
 
 * Wednesday 15th April 2015:
