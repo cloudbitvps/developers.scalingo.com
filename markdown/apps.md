@@ -388,7 +388,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/logs`
+`GET https://api.scalingo.com/v1/apps/[:app]/logs`
 
 The request will generate an URL you can use to access the logs of your application.
 

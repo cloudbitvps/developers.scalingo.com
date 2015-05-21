@@ -230,13 +230,15 @@ Each <code class="highlighter-rouge">containers</code>:
     <ul>
       <li><code class="highlighter-rouge">container.name</code>: Name of the container you want to scale</li>
       <li><code class="highlighter-rouge">container.amount</code>: Final amount of container of this type</li>
+      <li><code class="highlighter-rouge">container.size</code> (optional): Target size of container. (not changed if empty)
+Size documentation: http://doc.scalingo.com/internals/container-sizes</li>
     </ul>
   </li>
 </ul>
 
 <h3 id="free-usage-limit">Free usage limit</h3>
 
-<p>You can only have 1 ‘web’ container without having defined <a href="https://my.scalingo.com/apps/billing">a payment
+<p>You can only have 1 small or medium ‘web’ container without having defined <a href="https://my.scalingo.com/apps/billing">a payment
 method</a>.</p>
 
 <h3 id="limit">Limit</h3>
@@ -253,7 +255,8 @@ method</a>.</p>
     "containers": [
       {
         "name": "web",
-        "amount": 2
+        "amount": 2,
+        "size": "L"
       }
     ]
   }'</span>
@@ -269,12 +272,14 @@ Headers:
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd2457356330032b020000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd235735633003210a0001"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worker"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -418,7 +423,7 @@ collaborators</li>
 <h2 id="access-to-the-application-logs">Access to the application logs</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:app]/logs</code></p>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/logs</code></p>
 
 <p>The request will generate an URL you can use to access the logs of your application.</p>
 
