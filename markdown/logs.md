@@ -87,7 +87,7 @@ Each event:
 ### Keepalive events to avoid connection timeout
 
 Our frontal servers disallow inactive connections. To avoid websockets or SSE
-connections to be cut after 30 seconds of inactivity, both methods are send
+connections to be cut after 30 seconds of inactivity, both methods are sending
 keepalive data.
 
 These events don't expect any responser, they just ensure the connection is not
