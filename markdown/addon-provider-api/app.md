@@ -94,7 +94,7 @@ Parameters:
 * `config`: `object` - hash of the variables to modify
 
 You can only update the variables defined in your manifest obviously,
-the application will be restart after the modification.
+the application will be restarted after the modification.
 
 ||| col |||
 
