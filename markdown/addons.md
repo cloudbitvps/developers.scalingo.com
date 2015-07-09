@@ -33,7 +33,8 @@ Example object:
   "resource_id" : "example_app_3083",
   "addon_provider" : {
     "id" : "scalingo-redis",
-    "name" : "Scalingo Redis"
+    "name" : "Scalingo Redis",
+    "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
   }
 }
 ```
@@ -75,7 +76,8 @@ Returns 201 Created
          "resource_id" : "example_app_3083",
          "addon_provider" : {
             "id" : "scalingo-redis",
-            "name" : "Scalingo Redis"
+            "name" : "Scalingo Redis",
+            "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
          }
     }]
 }

@@ -479,6 +479,25 @@ This request returns the events 40 to 60.
 
 --- row ---
 
+* Thursday 9th July 2015:
+
+  Add `addon_provider.logo_url` to addon
+
+```js
+{
+  "addon": {
+    // ...
+    "addon_provider": {
+      "id": "scalingo-redis",
+      "name": "Scalingo Redis",
+      "logo_url": "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+    }
+  }
+}
+```
+
+--- row ---
+
 * Wednesday 13rd May 2015:
 
   Additional `links` attribute in deployments
