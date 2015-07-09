@@ -28,7 +28,7 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Wednesday 15th April 2015
+> Last update: Wednesday 9th Jul 2015
 
 ||| col |||
 
