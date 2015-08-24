@@ -145,6 +145,49 @@ DATABASE_URL=mongodb://user:password@host:port/db
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="bulk-update-of-the-environment-of-an-app">Bulk update of the environment of an app</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>The bulk update will create or update all the variables sent in the body</p>
+
+<p><code class="highlighter-rouge">PUT https://api.scalingo.com/v1/apps/[:app]/variables</code></p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X PUT -u :<span class="nv">$AUTH_TOKEN</span> https://api.scalingo.com/v1/apps/example-app/variables -d <span class="se">\</span>
+  <span class="s1">'{
+    "variables": [{
+      "name":"RAILS_ENV",
+      "value":"production"
+    },{
+      "name":"RACK_ENV",
+      "value":"production"
+    }]
+  }'</span>
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<p>Response</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"variables"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050000"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"RAILS_ENV"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+    	</span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050001"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"RACK_ENV"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="update-an-environment-variable">Update an environment variable</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>

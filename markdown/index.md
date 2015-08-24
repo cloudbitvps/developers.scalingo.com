@@ -28,7 +28,7 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Wednesday 9th Jul 2015
+> Last update: Wednesday 24th August 2015
 
 ||| col |||
 
@@ -281,11 +281,11 @@ Returns HTTP/1.1 400 Bad Request
 
 --- row ---
 
-### Exceeding free tier - 402 Payment Required
+### Exceeding free trial - 402 Payment Required
 
 --- row ---
 
-If you try to do an action unallowed in the free tier, you will get an error 402 Payment Required.
+If you try to do an action unallowed in the free trial, you will get an error 402 Payment Required.
 
 ||| col |||
 
@@ -479,7 +479,130 @@ This request returns the events 40 to 60.
 
 --- row ---
 
-* Thursday 9th July 2015:
+## Wednesday 12th August 2015:
+
+Add multiple event to the app timeline
+
+* `new_collaborator`
+* `accept_collaborator`
+* `delete_collaborator`
+* `new_domain`
+* `edit_domain`
+* `delete_domain`
+* `new_addon`
+* `upgrade_addon`
+* `delete_addon`
+* `new_app`
+* `rename_app`
+* `transfer_app`
+
+## Tuesday 11th August 2015:
+
+  Update data format of specialized data in event.
+
+  Add `type_data` attribute in all events.
+
+||| col |||
+
+Example change: scale event
+
+Old format:
+
+```json
+{
+    "id": "54dcdd4a73636100011a0000",
+    "created_at" : "2015-02-12T18:05:14.226+01:00",
+    "user" : {
+        "username" : "johndoe",
+        "email" : "john@doe.com",
+        "id" : "51e6bc626edfe40bbb000001"
+    },
+    "app_id" : "5343eccd646173000a140000",
+    "type" : "scale",
+    "previous_containers" : {
+        "web" : 1,
+        "worker": 0
+    },
+    "containers" : {
+        "web" : 2,
+        "worker" : 1 
+    }
+}
+```
+
+New format:
+
+```json
+{
+    "id": "54dcdd4a73636100011a0000",
+    "created_at" : "2015-02-12T18:05:14.226+01:00",
+    "user" : {
+        "username" : "johndoe",
+        "email" : "john@doe.com",
+        "id" : "51e6bc626edfe40bbb000001"
+    },
+    "app_id" : "5343eccd646173000a140000",
+    "type" : "scale",
+    "type_data" : {
+        "previous_containers" : {
+            "web" : 1,
+            "worker" : 0
+        },
+        "containers" : {
+            "web" : 2,
+            "worker" : 1 
+        }
+    }
+}
+```
+
+--- row ---
+
+## Monday 10th August 2015:
+
+  Bulk upgrade of application environment
+
+  New endpoint: PUT `/apps/[:app_id]/variables`
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -X PUT -u :$AUTH_TOKEN https://api.scalingo.com/v1/apps/example-app/variables -d \
+  '{
+    "variables": [{
+      "name":"RAILS_ENV",
+      "value":"production"
+    },{
+      "name":"RACK_ENV",
+      "value":"production"
+    }]
+  }'
+```
+
+Returns 200 OK
+
+Response
+
+```json
+{
+    "variables": [{
+        "id": "541013a9736f7563d5050000",
+    	"name":"RAILS_ENV",
+    	"value":"production"
+    },{
+    	"id": "541013a9736f7563d5050001",
+    	"name":"RACK_ENV",
+    	"value":"production"
+    }]
+}
+```
+
+--- row ---
+
+## Thursday 9th July 2015:
 
   Add `addon_provider.logo_url` to addon
 
@@ -498,7 +621,7 @@ This request returns the events 40 to 60.
 
 --- row ---
 
-* Wednesday 13rd May 2015:
+## Wednesday 13rd May 2015:
 
   Additional `links` attribute in deployments
 
@@ -511,9 +634,9 @@ This request returns the events 40 to 60.
 }
 ```
 
---- row
+--- row ---
 
-* Wednesday 15th April 2015:
+## Wednesday 15th April 2015:
 
   Additional `size` field in `/apps/:app/scale` for vertical scaling
 
@@ -559,7 +682,7 @@ Headers:
 
 --- row ---
 
-* Sunday 1st March 2015:
+## Sunday 1st March 2015:
   
   The 404 not found error got a new field `resource` to define the resource
   which has not been found.
@@ -592,7 +715,7 @@ After:
 }
 ```
 
-* Friday 6th March 2015:
+## Friday 6th March 2015:
 
   The `user` object has been embedded to the the result of the `/users/sign_in` endpoint
 

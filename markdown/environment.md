@@ -125,6 +125,52 @@ Response
 
 --- row ---
 
+## Bulk update of the environment of an app
+
+--- row ---
+
+The bulk update will create or update all the variables sent in the body
+
+`PUT https://api.scalingo.com/v1/apps/[:app]/variables`
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -X PUT -u :$AUTH_TOKEN https://api.scalingo.com/v1/apps/example-app/variables -d \
+  '{
+    "variables": [{
+      "name":"RAILS_ENV",
+      "value":"production"
+    },{
+      "name":"RACK_ENV",
+      "value":"production"
+    }]
+  }'
+```
+
+Returns 200 OK
+
+Response
+
+```json
+{
+    "variables": [{
+        "id": "541013a9736f7563d5050000",
+    	"name":"RAILS_ENV",
+    	"value":"production"
+    },{
+    	"id": "541013a9736f7563d5050001",
+    	"name":"RACK_ENV",
+    	"value":"production"
+    }]
+}
+```
+
+--- row ---
+
 ## Update an environment variable
 
 --- row ---
