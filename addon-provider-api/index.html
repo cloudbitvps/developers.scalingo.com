@@ -32,7 +32,7 @@ instantly.</p>
 
 <p>Response:</p>
 
-<p>Status <strong>201 Created</strong> or 200 OK (Heroku compatibility)</p>
+<p>Status <strong>200 OK</strong>, <strong>201 Created</strong> or <strong>202 Accepted</strong></p>
 
 <ul>
   <li><code class="highlighter-rouge">id</code>: <code class="highlighter-rouge">string - mandatory</code> - ID of the provisioned resource, that is the
@@ -43,6 +43,8 @@ not be longer than 255 characters</li>
 after the provisioning</li>
   <li><code class="highlighter-rouge">config</code>: <code class="highlighter-rouge">object - optional</code> - Hash of the configuration variable to inject
 in the application environment</li>
+  <li><code class="highlighter-rouge">log_drain_url</code>: <code class="highlighter-rouge">string - optional</code> - If the <code class="highlighter-rouge">log_drain</code> attribute is true
+in the manifest, all the logs will be send to this endpoint (http/https)</li>
 </ul>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>

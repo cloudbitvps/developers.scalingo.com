@@ -8,7 +8,7 @@ To add an addon to our platorm, you have to write a manifest
 defining how we are going to communicate with your services.
 The manifest is not strictly identical to Heroku but is quite,
 of course if you need to modify anything, you just have ton contact
-us. [mailto:addons@scalingo.com](addons@scalingo.com)
+us. [addons@scalingo.com](mailto:addons@scalingo.com)
 
 --- row ---
 
@@ -36,6 +36,8 @@ The manifest is simply a JSON file with the following structure:
 * `logo_url`: Picture to display as logo of your addon (100x100)
 * `short_description`: Summary of one sentence of the purpose of the addon
 * `description`: Complete description in markdown of your addon
+* `log_drain`: Boolean, if true, the provisioning will expect a `log_drain_url` attribute to
+  send the logs to.
 * `config_vars`: List of the environment variables you will be able to set on the applications
   which provisioned your addon.
 * `production.base_url`: URL of your addon which will be hit by our services to

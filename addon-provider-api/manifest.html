@@ -11,7 +11,7 @@ layout: addon-provider-api
 defining how we are going to communicate with your services.
 The manifest is not strictly identical to Heroku but is quite,
 of course if you need to modify anything, you just have ton contact
-us. <a href="addons@scalingo.com">mailto:addons@scalingo.com</a></p>
+us. <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#097;&#100;&#100;&#111;&#110;&#115;&#064;&#115;&#099;&#097;&#108;&#105;&#110;&#103;&#111;&#046;&#099;&#111;&#109;">&#097;&#100;&#100;&#111;&#110;&#115;&#064;&#115;&#099;&#097;&#108;&#105;&#110;&#103;&#111;&#046;&#099;&#111;&#109;</a></p>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="structure">Structure</h2>
@@ -41,6 +41,8 @@ is authenticated.</p>
   <li><code class="highlighter-rouge">logo_url</code>: Picture to display as logo of your addon (100x100)</li>
   <li><code class="highlighter-rouge">short_description</code>: Summary of one sentence of the purpose of the addon</li>
   <li><code class="highlighter-rouge">description</code>: Complete description in markdown of your addon</li>
+  <li><code class="highlighter-rouge">log_drain</code>: Boolean, if true, the provisioning will expect a <code class="highlighter-rouge">log_drain_url</code> attribute to
+send the logs to.</li>
   <li><code class="highlighter-rouge">config_vars</code>: List of the environment variables you will be able to set on the applications
 which provisioned your addon.</li>
   <li><code class="highlighter-rouge">production.base_url</code>: URL of your addon which will be hit by our services to

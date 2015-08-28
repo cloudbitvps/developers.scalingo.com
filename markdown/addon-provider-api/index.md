@@ -28,7 +28,7 @@ Parameters:
 
 Response:
 
-Status __201 Created__ or 200 OK (Heroku compatibility)
+Status __200 OK__, __201 Created__ or __202 Accepted__
 
 * `id`: `string - mandatory` - ID of the provisioned resource, that is the
   identifier we will user in our request to update or deprovision the addon, it
@@ -38,6 +38,8 @@ Status __201 Created__ or 200 OK (Heroku compatibility)
   after the provisioning
 * `config`: `object - optional` - Hash of the configuration variable to inject
   in the application environment
+* `log_drain_url`: `string - optional` - If the `log_drain` attribute is true
+  in the manifest, all the logs will be send to this endpoint (http/https)
 
 ||| col |||
 
