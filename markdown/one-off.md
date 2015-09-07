@@ -17,7 +17,7 @@ hijacking consist in turning this connection into a full bidirectional
 connection.
 
 You can find an example of implementation in [this
-project](https://github.com/Soulou/go-http-hijack-client)
+project](https://github.com/Soulou/go-http-hijack-client).
 
 For your information there is [an example of
 server](https://github.com/Soulou/go-http-echo-hijack) also.
@@ -73,7 +73,7 @@ multipart form.
   The <code>Content-Type</code> of this request is not <code>application/json</code>, it should be <code>multipart/form-data; boundary=[:boundary]</code>
 </blockquote>
 
-It has to be done before attaching to the container. Files ca be found in the directory `/tmp/uploads`
+It has to be done before attaching to the container. Files can be found in the directory `/tmp/uploads`
 
 Form parameters:
 

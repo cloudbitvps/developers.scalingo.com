@@ -429,8 +429,7 @@ environment your application.
 
 <blockquote>
   We do not handle detached commands yet, each one-off container has to be
-  attached to be executed, it will be canceled after 5 without action have been
-  waited.
+  attached to be executed, to be canceled after 5 minutes if it hasn't.
 </blockquote>
 
 See [how to handle the returned `attach_url`](/one-off.html)
