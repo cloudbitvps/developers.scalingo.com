@@ -448,6 +448,28 @@ or next page.</p>
 <h1 id="changelog">Changelog</h1>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="friday-20th-august-2015">Friday 20th August 2015:</h2>
+
+<p>Add <code class="highlighter-rouge">GET /apps/[:app]/stats</code> endpoint to get application metrics.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>```json
+{
+  “stats” : [
+    {
+      “id” : “web-1”,
+      “cpu_usage” : 0,
+      “memory_usage” : 200105984,
+      “memory_limit” : 536870912,
+      “highest_memory_usage” : 203440128,
+      “swap_usage” : 212992,
+      “swap_limit” : 1610612736,
+      “highest_swap_usage” : 0
+    }
+  ]
+}</p>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="wednesday-12th-august-2015">Wednesday 12th August 2015:</h2>
 
 <p>Add multiple event to the app timeline</p>

@@ -479,6 +479,30 @@ This request returns the events 40 to 60.
 
 --- row ---
 
+## Friday 20th August 2015:
+
+Add `GET /apps/[:app]/stats` endpoint to get application metrics.
+
+||| col |||
+
+```json
+{
+  "stats" : [
+    {
+      "id" : "web-1",
+      "cpu_usage" : 0,
+      "memory_usage" : 200105984,
+      "memory_limit" : 536870912,
+      "highest_memory_usage" : 203440128,
+      "swap_usage" : 212992,
+      "swap_limit" : 1610612736,
+      "highest_swap_usage" : 0
+    }
+  ]
+}
+
+--- row ---
+
 ## Wednesday 12th August 2015:
 
 Add multiple event to the app timeline

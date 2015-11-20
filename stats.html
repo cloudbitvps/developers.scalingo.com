@@ -1,0 +1,64 @@
+---
+layout: default
+title: Stats
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="stats">Stats</h1>
+
+<p>The stats endpoint let you get metrics about the containers of an application.
+These data include the CPU usage and the memory usage, splitted between RAM
+and Swap memory.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="get-stats-of-an-app">Get stats of an app</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/stats</code></p>
+
+<p>Return the list of all stats for each container of the application.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"stats"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">200105984</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203440128</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">212992</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203722752</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">204136448</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"worker-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">210239488</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">229318656</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div>
