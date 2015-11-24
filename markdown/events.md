@@ -15,7 +15,10 @@ applications.
 | created_at | date   | date of creation                         |
 | user       | object | embedded user who generated the event    |
 | type       | string | type of event (see below for the values) |
-| app_id     | string | unique ID of app the event belongs to    |
+| app_name   | string | app name the event belongs to.           |
+
+Note: `app_name` is not modified when an application is renamed, it's
+frozen in the event.
 
 According to the `type` field, extra data will be included
 in the structure in a `type_data` attribute:
@@ -517,9 +520,11 @@ _When:_ Each time a collaboration invitation is sent
 `type="new_collaborator"`
 
 {:.table}
-| field              | type   | description                        |
-| ------------------ | ------ | ---------------------------------- |
-| collaborator.email | string | Email of the invited person        |
+| field                 | type   | description                            |
+| --------------------- | ------ | -------------------------------------- |
+| collaborator.id       | string | ID of the invited user if user exists  |
+| collaborator.username | string | Username of the invited user if exists |
+| collaborator.email    | string | Email of the invited person            |
 
 ||| col |||
 
@@ -552,12 +557,13 @@ _When:_ The invitee accepts the collaboration invitation for an app
 `type="accept_collaborator"`
 
 {:.table}
-| field                         | type   | description                    |
-| ----------------------------- | ------ | ------------------------------ |
-| collaborator.email            | string | Email of the invited person    |
-| collaborator.username         | string | Username of the invited person |
-| collaborator.inviter.email    | string | Email of the inviter           |
-| collaborator.inviter.username | string | Username of the inviter        |
+| field                         | type   | description                            |
+| ----------------------------- | ------ | -------------------------------------- |
+| collaborator.id               | string | ID of the invited user if user exists  |
+| collaborator.email            | string | Email of the invited person            |
+| collaborator.username         | string | Username of the invited person         |
+| collaborator.inviter.email    | string | Email of the inviter                   |
+| collaborator.inviter.username | string | Username of the inviter                |
 
 ||| col |||
 
@@ -576,6 +582,7 @@ Example object:
   "type": "edit_collaborator",
   "type_data": {
       "collaborator": {
+          "id": "51e6bc626edfe40bbb000001"
           "email": "test@example.com",
           "username": "text-example",
           "inviter": {
