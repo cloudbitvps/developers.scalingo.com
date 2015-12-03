@@ -42,12 +42,15 @@ applications.</p>
       <td>type of event (see below for the values)</td>
     </tr>
     <tr>
-      <td>app_id</td>
+      <td>app_name</td>
       <td>string</td>
-      <td>unique ID of app the event belongs to</td>
+      <td>app name the event belongs to.</td>
     </tr>
   </tbody>
 </table>
+
+<p>Note: <code class="highlighter-rouge">app_name</code> is not modified when an application is renamed, it’s
+frozen in the event.</p>
 
 <p>According to the <code class="highlighter-rouge">type</code> field, extra data will be included
 in the structure in a <code class="highlighter-rouge">type_data</code> attribute:</p>
@@ -776,6 +779,16 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
   </thead>
   <tbody>
     <tr>
+      <td>collaborator.id</td>
+      <td>string</td>
+      <td>ID of the invited user if user exists</td>
+    </tr>
+    <tr>
+      <td>collaborator.username</td>
+      <td>string</td>
+      <td>Username of the invited user if exists</td>
+    </tr>
+    <tr>
       <td>collaborator.email</td>
       <td>string</td>
       <td>Email of the invited person</td>
@@ -823,6 +836,11 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
   </thead>
   <tbody>
     <tr>
+      <td>collaborator.id</td>
+      <td>string</td>
+      <td>ID of the invited user if user exists</td>
+    </tr>
+    <tr>
       <td>collaborator.email</td>
       <td>string</td>
       <td>Email of the invited person</td>
@@ -860,7 +878,8 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edit_collaborator"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"collaborator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
+          </span><span class="s2">"email"</span><span class="err">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text-example"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"inviter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
