@@ -186,7 +186,7 @@ Send a scaling request, the status of the application will be changed to
 status has switched to "running" again.  
 
 You can follow the operation progress by following the `Location` header,
-pointing to an `operation` resource.
+pointing to an [`operation` resource](/operations.html).
 
 The request returns the complete formation of containers event those which are
 not currently scaled.
@@ -266,7 +266,7 @@ Send a restart request, the status of the application will be changed to
 app status has switched to "running" again.
 
 You can follow the operation progress by following the `Location` header,
-pointing to an `operation` resource.
+pointing to an [`operation` resource](/operations.html).
 
 ### Parameters
 

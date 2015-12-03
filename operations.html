@@ -1,0 +1,113 @@
+---
+layout: default
+title: Operations
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="operations">Operations</h1>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><strong>Operation attributes</strong></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>field</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>unique ID</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>date</td>
+      <td>creation date of the application</td>
+    </tr>
+    <tr>
+      <td>finished_at</td>
+      <td>date</td>
+      <td>last time the application has been updated</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>string</td>
+      <td>status of the operation</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>type of operation</td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>string</td>
+      <td>text of error if status == “error”</td>
+    </tr>
+  </tbody>
+</table>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example object:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:59.120+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restart"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:59.120+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restart"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container web-1 failed to restart"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="get-an-operation">Get an operation</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/operations/[:operation_id]</code></p>
+
+<p>Display a given operation.</p>
+
+<p>Possible status for an operation:</p>
+
+<ul>
+  <li>pending: Default status when the instruction has been given</li>
+  <li>running: When the action is actually made</li>
+  <li>done: When the action is finished with success</li>
+  <li>error: If something wrong happened, please read the ‘error’ property</li>
+</ul>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/apps/example-app/operations/54100930736f7563d5030000
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"operation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:59.120+02:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restart"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div>

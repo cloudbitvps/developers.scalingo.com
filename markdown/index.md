@@ -479,7 +479,12 @@ This request returns the events 40 to 60.
 
 --- row ---
 
-## Friday 20th August 2015:
+## Thursday 3rd December 2015:
+
+Documentation of the [Operation resource](/operations.html) with the endpoint:
+`GET /apps/[:app]/operations/[:operation_id]`
+
+## Friday 20th November 2015:
 
 Add `GET /apps/[:app]/stats` endpoint to get application metrics.
 
