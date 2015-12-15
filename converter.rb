@@ -35,6 +35,15 @@ def table_of_contents(content, output_filename, tag = 'h2')
   content_tag(:ul, list, class: "list-unstyled")
 end
 
+def guess_layout(dir)
+  if dir.end_with?("addon-provider-api")
+    return "addon-provider-api"
+  elsif dir.end_with?("one-click")
+    return "one-click-api"
+  end
+  return "default"
+end
+
 def build_directory(dir)
   row_identifier = "--- row ---"
   col_identifier = "||| col |||"
@@ -99,7 +108,7 @@ def build_directory(dir)
 
     File.open(output_filename, "w+") do |f|
       f.puts '---'
-      f.puts "layout: #{ dir.end_with?("addon-provider-api") ? "addon-provider-api" : "default" }"
+      f.puts "layout: #{ guess_layout(dir) }"
       f.puts "title: #{ resource_name }" if resource_name
       f.puts '---'
       f.puts ''
