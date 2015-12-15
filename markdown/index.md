@@ -28,7 +28,7 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Wednesday 24th August 2015
+> Last update: Wednesday 15th December 2015
 
 ||| col |||
 
@@ -478,6 +478,10 @@ This request returns the events 40 to 60.
 # Changelog
 
 --- row ---
+
+## Tuesday 15th December 2015:
+
+Documentation of the [One-click deployment manifest](/one-click)
 
 ## Thursday 3rd December 2015:
 
