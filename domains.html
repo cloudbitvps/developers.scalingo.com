@@ -59,12 +59,12 @@ result in the presence of one resource domain.</p>
 <p>Example object</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -86,19 +86,19 @@ result in the presence of one resource domain.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067f7736f7504a5140000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067f7736f7504a5140000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -122,10 +122,10 @@ result in the presence of one resource domain.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -187,10 +187,10 @@ Otherwise return 201</p>
 <p>Returns 201 Created</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -213,13 +213,13 @@ Otherwise return 201</p>
 <p>Returns 201 Created</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
+    </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -258,13 +258,13 @@ create another Domain and delete the one you wanted to modify.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
+    </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541067ec736f7504a5110000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tlscert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tlskey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA private key - 2048 bytes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"validity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-05T19:57:21.000+02:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>

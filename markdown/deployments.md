@@ -8,14 +8,15 @@ application are deployed.
 **Deployment attributes**
 
 {:.table}
-| field          | type   | description                                              |
-| -------------- | ------ | -------------------------------------------------------- |
-| id             | string | unique ID                                                |
-| app_id         | string | unique ID referencing the app this deployment belongs to |
-| created_at     | date   | date of creation                                         |
-| git_ref        | string | git SHA                                                  |
-| pusher         | object | embedded user who pushed the GIT reference               |
-| links          | object | hypermedia links about the deployment
+| field          | type   | description                                                     |
+| -------------- | ------ | --------------------------------------------------------------- |
+| id             | string | unique ID                                                       |
+| app_id         | string | unique ID referencing the app this deployment belongs to        |
+| created_at     | date   | date of creation                                                |
+| status         | string | status of the deployment (building, success, aborted, \*-error) |
+| git_ref        | string | git SHA                                                         |
+| pusher         | object | embedded user who pushed the GIT reference                      |
+| links          | object | hypermedia links about the deployment                           |
 
 **Deployment pusher attributes**
 
@@ -41,6 +42,7 @@ Example object:
 {
   "app_id": "54100930736f7563d5030000",
   "created_at": "2014-09-10T10:49:42.390+02:00",
+  "status": "success",
   "git_ref": "abcdef1234567890",
   "id": "123e4567-e89b-12d3-a456-426655440000",
   "pusher": {
@@ -84,6 +86,7 @@ Returns 200 OK
             "app_id": "54100930736f7563d5030000",
             "created_at": "2014-09-10T10:49:42.390+02:00",
             "git_ref": "abcdef1234567890",
+	    "status": "build-error",
             "id": "123e4567-e89b-12d3-a456-426655440000",
             "pusher": {
                 "email": "user@example.com",
