@@ -30,9 +30,9 @@ application are deployed.
 **Deployment links attributes**
 
 {:.table}
-| field  |  type  | description
-| ------ | ------ | ---------------------------------
-| output | string | URL to the logs of the deployment 
+| field  |  type  | description                       |
+| ------ | ------ | --------------------------------- |
+| output | string | URL to the logs of the deployment |
 
 ||| col |||
 
@@ -86,7 +86,7 @@ Returns 200 OK
             "app_id": "54100930736f7563d5030000",
             "created_at": "2014-09-10T10:49:42.390+02:00",
             "git_ref": "abcdef1234567890",
-	    "status": "build-error",
+            "status": "build-error",
             "id": "123e4567-e89b-12d3-a456-426655440000",
             "pusher": {
                 "email": "user@example.com",
@@ -150,7 +150,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps[:app]/deployments/[:deployment_id]`
+`GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]`
 
 This endpoint will return all the log of the deployment. Those are basically what
 you have seen in your terminal when running `git push`.
@@ -193,4 +193,109 @@ Content-Type: text/plain
        Running: rake assets:clean
 
 ----- Procfile declares types -> web
+```
+
+--- row ---
+
+## Get real time output of a live deployment
+
+--- row ---
+
+> Real time output comes from a WebSocket
+
+`GET wss://deployments.scalingo.com/apps/[:app]`
+
+First thing to do when connected is to authenticate sending an `auth` frame:
+
+```json
+{
+  "type": "auth",
+  "data": {
+     "token": <api token>
+  }
+}
+```
+
+On authentication error, the websocket will be ended immediately.
+
+Otherwise you'll start receiving existing logs and real time logs for the app
+deployments. There can't be several deployments in parallel for a given application.
+
+### Event types
+
+You'll receive different types of message from the websocket:
+
+* `ping` which is sent to keep the connection open and avoid timeout.
+* `new` when a new deployment is triggered this event is sent to notify listeners
+* `log` each time a logline is displayed, it is sent through this kind of event
+* `status` the deployment goes through multiple states during its lifetime:
+
+```
+  building → pushing → starting → success
+           → pushing → starting → crashed-error
+           → pushing → starting → timeout-error
+           → pushing → aborted
+           → aborted
+           → build-error
+```
+
+### Details about the deployment statuses
+
+* `building`: when the buildpack is chosen and executed
+* `pushing`: the generated Docker image is pushed to our registry
+* `starting`: the order to start your app has been transmitted to our scheduler
+* `success`: the application has correctly started, end of deployment
+* `crashed-error`: the application failed to boot, have a look to the logs
+* `timeout-error`: the application has not started in 60 seconds
+* `build-error`: something went wrong during the buildpack execution, have a look at deployments logs
+* `aborted`: if the connection is broken between the pusher and our infrastructure, the deployment is considered as canceled.
+
+||| col |||
+
+Events example
+
+New Event
+
+```json
+{
+  "type": "new",
+  "data": {
+    "deployment": "123e4567-e89b-12d3-a456-426655440000",
+  }
+}
+```
+
+Output Event
+
+```json
+{
+  "type": "log",
+  "id": "123e4567-e89b-12d3-a456-426655440000",
+  "data": {
+    "content": "Bundle completed (2.64s)"
+  }
+}
+```
+
+Status Event
+
+```json
+{
+  "type": "status",
+  "id": "123e4567-e89b-12d3-a456-426655440000",
+  "data": {
+    "status": "success"
+  }
+}
+```
+
+Ping Event
+
+```json
+{
+  "type": "ping",
+  "data": {
+    "ts": 1465288802
+  }
+}
 ```

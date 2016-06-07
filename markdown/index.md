@@ -28,7 +28,7 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Wednesday 15th December 2015
+> Last update: Wednesday 7th June 2016
 
 ||| col |||
 
@@ -478,6 +478,10 @@ This request returns the events 40 to 60.
 # Changelog
 
 --- row ---
+
+## Tuesday 7th June 2016:
+
+Documentation to get real time logs of deployments: [documentation](/deployments.html)
 
 ## Tuesday 15th December 2015:
 
