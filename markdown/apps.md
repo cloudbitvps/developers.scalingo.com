@@ -14,6 +14,7 @@
 | git_url        | string | URL to the GIT remote to access your application |
 | owner          | object | information about the owner of the application   |
 | urls           | array  | list of custom domains to access to your project |
+| links          | object | object of related link like `deployments_stream` |
 
 ||| col |||
 
@@ -33,7 +34,10 @@ Example object:
   },
   "urls": [
     "example-app.scalingo.io"
-  ]
+  ],
+  "links": {
+    "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+  }
 }
 ```
 
@@ -87,7 +91,10 @@ Returns 201 Created
         "updated_at": "2014-09-10T10:17:52.690+02:00",
         "urls": [
             "example-app.scalingo.io"
-        ]
+        ],
+        "links": {
+          "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+        }
     }
 }
 ```
@@ -168,7 +175,10 @@ Returns 200 OK
         "name" : "www.example.com",
         "ssl" : false
       }
-    ]
+    ],
+    "links": {
+      "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+    }
   }
 }
 ```

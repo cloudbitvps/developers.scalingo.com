@@ -267,7 +267,10 @@ Content-Type: text/plain</p>
   <p>Real time output comes from a WebSocket</p>
 </blockquote>
 
-<p><code class="highlighter-rouge">GET wss://deployments.scalingo.com/apps/[:app]</code></p>
+<p>You have to get the URL from the <code class="highlighter-rouge">.links.deployments_stream</code> value of an app
+object, it usually looks like to <code class="highlighter-rouge">wss://deployments.scalingo.com/apps/[:app]</code>
+but may change in the future. That’s why you have to first get an app and
+read the URL from there.</p>
 
 <p>First thing to do when connected is to authenticate sending an <code class="highlighter-rouge">auth</code> frame:</p>
 
