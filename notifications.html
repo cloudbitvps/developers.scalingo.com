@@ -1,0 +1,157 @@
+---
+layout: default
+title: Notifications
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="notifications">Notifications</h1>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>** Notification attributes **</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>field</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>unique ID identifying the notification</td>
+    </tr>
+    <tr>
+      <td>app_id</td>
+      <td>string</td>
+      <td>app reference</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>type of notification (e.g. slack)</td>
+    </tr>
+    <tr>
+      <td>webhook_url</td>
+      <td>string</td>
+      <td>the url to which notifications are sent</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>boolean</td>
+      <td>if the notification is active or not</td>
+    </tr>
+  </tbody>
+</table>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example object:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57554e06e6d67206b7ed2f28"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="list-application-notifications">List application notifications</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/notifications</code></p>
+
+<p>List all the provisioned notifications for a given application.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\ </span>
+  -X GET https://api.scalingo.com/v1/apps/example-app/notifications
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="add-a-notification">Add a notification</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:app]/notifications</code></p>
+
+<p>Add a notification to the application.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">notification.webhook_url</code></li>
+  <li><code class="highlighter-rouge">notification.active</code> (optional)</li>
+</ul>
+
+<p>You can only have one notification per type enabled. The notification is enabled by default if you don’t give the value of the active boolean.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X POST https://api.scalingo.com/v1/apps/[:app]/notifications <span class="se">\</span>
+  -d <span class="s1">'{"notification":{"webhook_url": "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX", "active": false}}'</span>
+</code></pre>
+</div>
+
+<p>Returns 201 Created</p>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="update-a-notification">Update a notification</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">PATCH https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id]</code></p>
+
+<p>Change your notification webhook url or/and enable/disable the notification.</p>
+
+<p>Be cautious though, the operation might fail. The provider may refuse to
+update a notification if the operation is invalid. Example: You want to update a slack notification with some non slack url.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">notification.webhook_url</code></li>
+  <li><code class="highlighter-rouge">notification.active</code></li>
+</ul>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X PATCH https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id] <span class="se">\</span>
+  -d <span class="s1">'{"notification": {"webhook_url": "https://myendpoint.com", active: "true"}}'</span>
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="remove-a-notification">Remove a notification</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">DELETE htttps://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id]</code></p>
+
+<p>Request deprovisionning of the notification.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X DELETE https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id] <span class="se">\</span>
+</code></pre>
+</div>
+
+<p>Returns 204 No Content</p>
+</div></div>
