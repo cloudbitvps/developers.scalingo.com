@@ -13,6 +13,8 @@
 | webhook_url      | string  | the url to which notifications are sent       |
 | active           | boolean | if the notification is active or not          |
 
+Notifications are sent within different JSON formats depending on the notification type.
+
 ||| col |||
 
 Example object:
@@ -24,6 +26,23 @@ Example object:
   "type": "slack",
   "webhook_url" : "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX",
   "active": true
+}
+```
+--- row ---
+
+## Data sent to the webhook endpoint (non-Slack)
+
+--- row ---
+
+Format of a notification sent to a custom webhook endpoint.
+
+||| col |||
+
+Notification:
+
+```json
+{
+  "text" : "Text we send to you"
 }
 ```
 --- row ---
