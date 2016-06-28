@@ -15,6 +15,7 @@ applications.
 | created_at | date   | date of creation                         |
 | user       | object | embedded user who generated the event    |
 | type       | string | type of event (see below for the values) |
+| app_id     | string | unique ID of the app
 | app_name   | string | app name the event belongs to.           |
 
 Note: `app_name` is not modified when an application is renamed, it's
@@ -39,6 +40,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "typename"
 }
 ```
@@ -64,7 +66,11 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
-  "type": "new_app"
+  "app_name": "appname",
+  "type": "new_app",
+  "type_data": {
+    "git_source": "<GIT repository URL - Optional>"
+  }
 }
 ```
 
@@ -95,6 +101,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "rename_app",
   "type_data": {
       "old_name": "old-app-name",
@@ -134,6 +141,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "rename_app",
   "type_data": {
       "old_owner": {
@@ -175,6 +183,7 @@ Example object:
       "id" : "51e6bc626edfe40bbb000001"
   },
   "app_id" : "5343eccd646173000a140000",
+  "app_name": "appname",
   "type" : "restart",
   "type_data": {
     "scope" : ["web", "worker"]
@@ -209,6 +218,7 @@ Example object:
       "id" : "51e6bc626edfe40bbb000001"
   },
   "app_id" : "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "scale",
   "type_data": {
       "previous_containers" : {
@@ -243,19 +253,20 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at" : "2015-02-12T18:05:14.226+01:00",
   "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+    "username" : "johndoe",
+    "email" : "john@doe.com",
+    "id" : "51e6bc626edfe40bbb000001"
   },
   "app_id" : "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "deployment",
   "type_data": {
-      "deployment" : {
-          "id" : "5343eccd646aa3012a140230",
-          "push": "johndoe",
-          "git_ref" : "0123456789abcdef"
-        }
-    }
+    "deployment_id" : "5343eccd646aa3012a140230",
+    "pusher": "johndoe",
+    "git_ref" : "0123456789abcdef",
+    "status": "success",
+    "duration": 40
+  }
 }
 ```
 
@@ -285,6 +296,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "run",
   "type_data": {
       "command": "bundle exec rake db:migrate"
@@ -319,6 +331,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_domain",
   "type_data": {
       "name" : "example.com",
@@ -355,6 +368,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "edit_domain",
   "type_data": {
       "hostname" : "example.com",
@@ -391,6 +405,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "delete_domain",
   "type_data": {
       "hostname" : "example.com",
@@ -427,6 +442,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_addon",
   "type_data": {
       "addon_provider_name": "scalingo-mysql",
@@ -465,6 +481,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_addon",
   "type_data": {
       "addon_provider_name": "scalingo-mysql",
@@ -503,6 +520,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_addon",
   "type_data": {
       "addon_provider_name": "scalingo-mysql",
@@ -540,6 +558,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_collaborator",
   "type_data": {
       "collaborator": {
@@ -579,6 +598,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000002"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "edit_collaborator",
   "type_data": {
       "collaborator": {
@@ -622,6 +642,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "delete_collaborator",
   "type_data": {
       "collaborator": {
@@ -660,6 +681,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "new_event",
   "type_data": {
       "name" : "VAR1",
@@ -696,6 +718,7 @@ Example object:
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
       "name" : "VAR1",
@@ -737,6 +760,7 @@ Example object
       "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
       "updated_vars": [{
@@ -774,15 +798,141 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "delete_variable"
   "type_data": {
-      "name" : "VAR1",
-      "value" : "VAL2"
+    "name" : "VAR1",
+    "value" : "VAL2"
+  }
+}
+```
+
+--- row ---
+
+* **Add Credit event**
+
+_When:_ After adding credit (ie. with Paypal)
+`type=add_credit`
+
+{:.table}
+| field          | type   | description                   |
+| -------------- | ------ | ----------------------------- |
+| payment_method | string | Type of payment done          |
+| amount         | float  | Amount of credit added        |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "add_credit"
+  "type_data": {
+    "payment_method" : "paypal",
+    "value" : 50.0
+  }
+}
+```
+
+--- row ---
+
+* **Add Payment Method event**
+
+_When:_ When you register a payment method like a credit card for your account
+`type=add_payment_method`
+
+{:.table}
+| field           | type   | description                               |
+| --------------- | ------ | ----------------------------------------- |
+| billing_profile | object | Object containing your the payment method |
+
+Billing Profile:
+
+{:.table}
+| field               | type   | description                |
+| ------------------- | ------ | -------------------------- |
+| company             | string | Company name               |
+| vat_number          | string | EU VAT registration number |
+| payment_method_type | string | Payment method type name   |
+| stripe              | object | data about credit card     |
+
+Stripe:
+
+{:.table}
+| field  | type   | description                |
+| -------| ------ | -------------------------- |
+| brand  | string | Brand of the card          |
+| last4  | string | Last 4 numbers of the card |
+| exp    | string | Expiry date of the card    |
+
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "add_payment_method"
+  "type_data": {
+    "company": "Scalingo SAS",
+    "vat_number" : "FR0000000000"
+    "payment_method_type": "stripe",
+    "stripe": {
+      "brand": "mastercard",
+      "last4": "4242",
+      "exp": "01/2017"
+    }
+  }
+}
+```
+
+--- row ---
+
+* **Add Voucher event**
+
+_When:_ A voucher has been added
+`type=add_voucher`
+
+{:.table}
+| field  | type   | description  |
+| -------| ------ | ------------ |
+| code   | string | Voucher code |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "add_payment_method"
+  "type_data": {
+    "code": "MYVOUCHER"
   }
 }
 ```
@@ -823,10 +973,11 @@ Response
             "id": "51e6bc626edfe40bbb000001"
         },
         "app_id": "5343eccd646173000a140000",
+        "app_name": "appname",
         "type": "run",
-	"type_data": {
+        "type_data": {
             "command": "rake db:migrate"
-	}
+        }
     }, {
         "id": "54dcdc0073636100011b0000",
         "created_at": "2015-02-12T17:59:44.962+01:00",
@@ -836,6 +987,7 @@ Response
             "id": "51e6bc626edfe40bbb000001"
         },
         "app_id": "5343eccd646173000a140000",
+        "app_name": "appname",
         "type": "deployment",
         "type_data": {
             "deployment": {
@@ -857,5 +1009,71 @@ Response
 }
 ```
 
+--- row ---
 
+## List current user events
 
+--- row ---
+
+With this list of events, you can reconstruct the timeline your user. You'll
+get the events which have been done by the user on themself, and on their apps.
+
+`GET https://api.scalingo.com/v1/events`
+
+> Feature: pagination
+
+||| col |||
+
+Example
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN https://api.scalingo.com/v1/events
+```
+
+Returns 200 OK
+
+Response
+
+```json
+{
+  "events": [
+    {
+      "id": "54dcdd4a73636100011a0000",
+      "created_at": "2015-02-12T18:01:52.000+01:00",
+      "user": {
+        "username": "johndoe",
+        "email": "john@doe.com",
+        "id": "51e6bc626edfe40bbb000001"
+      },
+      "type": "run",
+      "type_data": {
+        "payment_method": "paypal",
+        "amount": 50.0
+      }
+    }, {
+      "id": "54dcdd4a73636100011a0000",
+      "created_at": "2015-02-12T18:05:14.226+01:00",
+      "user": {
+        "username": "johndoe",
+        "email": "john@doe.com",
+        "id": "51e6bc626edfe40bbb000001"
+      },
+      "app_id": "5343eccd646173000a140000",
+      "app_name": "appname",
+      "type": "run",
+      "type_data": {
+        "command": "rake db:migrate"
+      }
+    }, (...)
+  ],
+  "meta": {
+    "pagination": {
+      "current_page": 1,
+      "next_page": 2,
+      "prev_page": null,
+      "total_pages": 13,
+      "total_count": 252
+    }
+  }
+}
+```
