@@ -434,7 +434,7 @@ Similar to `scalingo run`
 
 To run an interactive task, you have to start a one-off container. As its name
 mean it's a container you will start for a given task and which will be
-destroyed after it.  It can be any command which will be executed in the
+destroyed after it. It can be any command which will be executed in the
 environment your application.
 
 <blockquote>
@@ -448,6 +448,10 @@ See [how to handle the returned `attach_url`](/one-off.html)
 
 * `command`: Command line which has to be run (example: "bash")
 * `env`: Environment variables to inject into the container (additionaly to those of your apps)
+
+### Options
+
+* `--size, -z "SIZE"`: Size of the container (e.g. S, M, etc). The size by default is M.
 
 ||| col |||
 
