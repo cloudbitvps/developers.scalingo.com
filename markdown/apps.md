@@ -451,7 +451,7 @@ See [how to handle the returned `attach_url`](/one-off.html)
 
 ### Options
 
-* `--size, -z "SIZE"`: Size of the container (e.g. S, M, etc). The size by default is M.
+* `--size, -s "SIZE"`: Size of the container (e.g. S, M, etc). The size by default is M.
 
 ||| col |||
 
