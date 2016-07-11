@@ -54,7 +54,7 @@ List all the provisioned addons for a given application.
 Example
 
 ```shell
-curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \ 
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
   -X GET https://api.scalingo.com/v1/apps/example-app/addons
 ```
 

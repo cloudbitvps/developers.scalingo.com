@@ -8,7 +8,7 @@
 | field          | type   | description                                      |
 | -------------- | ------ | ------------------------------------------------ |
 | id             | string | unique ID                                        |
-| name           | string | name of the application, can substitute the ID   | 
+| name           | string | name of the application, can substitute the ID   |
 | created_at     | date   | creation date of the application                 |
 | updated_at     | date   | last time the application has been updated       |
 | git_url        | string | URL to the GIT remote to access your application |
@@ -57,7 +57,7 @@ Example object:
 
 ### Free usage limit
 
-You can only have 3 applications without having defined [a payment
+You can only have 1 application without having defined [a payment
 method](https://my.scalingo.com/apps/billing).
 
 ||| col |||
@@ -193,7 +193,7 @@ Returns 200 OK
 
 Send a scaling request, the status of the application will be changed to
 'scaling' for the scaling duration. No other operation is doable until the app
-status has switched to "running" again.  
+status has switched to "running" again.
 
 You can follow the operation progress by following the `Location` header,
 pointing to an [`operation` resource](/operations.html).

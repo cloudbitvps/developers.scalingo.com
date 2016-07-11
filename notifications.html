@@ -51,11 +51,11 @@ title: Notifications
 <p>Example object:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57554e06e6d67206b7ed2f28"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57554e06e6d67206b7ed2f28"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -63,13 +63,31 @@ title: Notifications
 <h2 id="data-sent-to-the-webhook-endpoint-non-slack">Data sent to the webhook endpoint (non-Slack)</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<p>Format of a notification sent to a custom webhook endpoint.</p>
+<p>Notifications are app events sent to a custom HTTP endpoint.
+You can refer to our <a href="http://developers.scalingo.com/events.html">‘Events’ documentation</a> to know the notification JSON format.</p>
+
+<p>At the moment only <code class="highlighter-rouge">deployment</code> events are sent.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
-<p>Notification:</p>
+<p>Example of a deployment notification:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Text we send to you"</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deployment"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"deployment"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646aa3012a140230"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"push"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"git_ref"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -84,7 +102,7 @@ title: Notifications
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\ </span>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
   -X GET https://api.scalingo.com/v1/apps/example-app/notifications
 </code></pre>
 </div>
@@ -92,11 +110,11 @@ title: Notifications
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nt">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"575a917de6d67217900386e6"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slack"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"webhook_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
