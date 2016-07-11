@@ -64,21 +64,21 @@ title: Applications
 <p>Example object:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100245736f7563d5000000"</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100245736f7563d5000000"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"example-app.scalingo.io"</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -119,22 +119,22 @@ method</a>.</p>
 <p>Returns 201 Created</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100245736f7563d5000000"</span><span class="w">
+    </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100245736f7563d5000000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"example-app.scalingo.io"</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -159,12 +159,12 @@ method</a>.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
       </span><span class="err">…</span><span class="w">
     </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another-app"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another-app"</span><span class="p">,</span><span class="w">
       </span><span class="err">…</span><span class="w">
     </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -191,29 +191,29 @@ method</a>.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e938266edff4fac9100005"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"owner"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51d73c1e6edfeab537000001"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e938266edff4fac9100005"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"owner"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51d73c1e6edfeab537000001"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"git_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_deployed_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-16T12:17:16.137+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02T18:00:18.041+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-19T14:59:18.329+02:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_deployed_by"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"domains"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"git_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_deployed_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-16T12:17:16.137+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02T18:00:18.041+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-19T14:59:18.329+02:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_deployed_by"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"example-user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domains"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"53e4a2ef7f784210ea000123"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"www.example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ssl"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"53e4a2ef7f784210ea000123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"www.example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ssl"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"deployments_stream"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://deployments.scalingo.com/apps/example-app"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -228,7 +228,7 @@ method</a>.</p>
 
 <p>Send a scaling request, the status of the application will be changed to
 ‘scaling’ for the scaling duration. No other operation is doable until the app
-status has switched to “running” again.</p>
+status has switched to “running” again.  </p>
 
 <p>You can follow the operation progress by following the <code class="highlighter-rouge">Location</code> header,
 pointing to an <a href="/operations.html"><code class="highlighter-rouge">operation</code> resource</a>.</p>
@@ -282,17 +282,17 @@ Headers:
   * <code class="highlighter-rouge">Location</code>: ‘https://api.scalingo.com/v1/apps/example-app/operations/52fd2357356330032b080000’</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"containers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"containers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd2457356330032b020000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd2457356330032b020000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd235735633003210a0001"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worker"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd235735633003210a0001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
     </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -387,8 +387,8 @@ pointing to an <a href="/operations.html"><code class="highlighter-rouge">operat
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"renamed_example-app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"renamed_example-app"</span><span class="p">,</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -425,8 +425,8 @@ collaborators</li>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -454,8 +454,8 @@ collaborators</li>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"logs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://logs.scalingo.com/apps/example-app/logs?token=0123456789"</span><span class="w">
+  </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="err">}</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"logs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://logs.scalingo.com/apps/example-app/logs?token=0123456789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -504,16 +504,16 @@ environment your application.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"container"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5250424112dba4edf0000024"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-17T22:10:32.692+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.36870912e+08</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"booting"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"app"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">}</span><span class="w">
+  </span><span class="s2">"container"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5250424112dba4edf0000024"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-17T22:10:32.692+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.36870912e+08</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"booting"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"app"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"attach_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://run-1.scalingo.com:5000/f15d8c7fb4170c4ef14b63b2b265c8fa3dbf4a5882de19682a21f6243ae332c6"</span><span class="w">
+  </span><span class="s2">"attach_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://run-1.scalingo.com:5000/f15d8c7fb4170c4ef14b63b2b265c8fa3dbf4a5882de19682a21f6243ae332c6"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -541,34 +541,34 @@ and Swap memory.</p>
 <p>Returns 200 OK</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"stats"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"stats"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">200105984</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203440128</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">212992</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">200105984</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203440128</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">212992</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203722752</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">204136448</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"web-2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">203722752</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">204136448</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"worker-1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">210239488</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">229318656</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"worker-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cpu_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">210239488</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memory_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_memory_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">229318656</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"swap_limit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1610612736</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highest_swap_usage"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
