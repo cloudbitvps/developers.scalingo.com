@@ -10,6 +10,11 @@ Execute converter
 bundle exec ruby converter.rb
 ```
 
+Launch server
+```
+bundle exec jekyll server
+```
+
 # Custom syntax
 
 To symbolize a row:
