@@ -137,17 +137,17 @@ Basic HTTP Auth. The API is HTTPS only, so credentials are always sent encrypted
 <p>Returns 201 Created</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"authentication_token"</span><span class="p">:</span><span class="s2">"abcdef0123456789-"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"51dba73fedfe42612000002"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"hello@scalingo.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"leo"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Léo"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Unbekandt"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"company"</span><span class="p">:</span><span class="s2">"Scalingo"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"location"</span><span class="p">:</span><span class="s2">"Strasbourg France"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email_newsletter"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email_personal_advice"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="s2">"authentication_token"</span><span class="p">:</span><span class="s2">"abcdef0123456789-"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"51dba73fedfe42612000002"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"hello@scalingo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"leo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Léo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Unbekandt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"Scalingo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="s2">"Strasbourg France"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_newsletter"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_personal_advice"</span><span class="p">:</span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -259,7 +259,7 @@ key may be plural if a collection of items is returned.</p>
 <p>Returns HTTP/1.1 400 Bad Request</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"There was a problem in the JSON you submitted: 795: unexpected token at '{\"user\": {'"</span><span class="w">
+  </span><span class="s2">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"There was a problem in the JSON you submitted: 795: unexpected token at '{\"user\": {'"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -284,8 +284,8 @@ key may be plural if a collection of items is returned.</p>
 <p>Returns 402 Payment Required if user is not allowed to create a new app.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorry, you need to verify your account (billing profile and payment card) to create a new app"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.scalingo.com/apps/billing"</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorry, you need to verify your account (billing profile and payment card) to create a new app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.scalingo.com/apps/billing"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -305,8 +305,8 @@ key may be plural if a collection of items is returned.</p>
 <p>Returns HTTP/1.1 404 Not Found</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
+  </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -326,8 +326,8 @@ key may be plural if a collection of items is returned.</p>
 <p>Returns HTTP/1.1 422 Unprocessable Entity</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"missing field"</span><span class="w"> </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"missing field"</span><span class="w"> </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -353,8 +353,8 @@ key may be plural if a collection of items is returned.</p>
 <p>Returns HTTP/1.1 422 Unprocessable Entity</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"should contain only lowercap letters, digits and hyphens"</span><span class="w"> </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"should contain only lowercap letters, digits and hyphens"</span><span class="w"> </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -372,7 +372,7 @@ for it and that it will be fixed really quickly.</p>
 <p>Example of error 500:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal error occured, we're on it!"</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal error occured, we're on it!"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -399,13 +399,13 @@ Each resource has a maximum for this value to avoid oversized requests</li>
 metadata:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;previous page number&gt;"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;requested page number&gt;"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;next page number&gt;"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total amount of pages&gt;"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total amount of items in the collection&gt;"</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;previous page number&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;requested page number&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;next page number&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total amount of pages&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total amount of items in the collection&gt;"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -430,15 +430,15 @@ or next page.</p>
 <p>This request returns the events 40 to 60.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-		</span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+	</span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">}</span><span class="w">
 	</span><span class="p">],</span><span class="w">
-	</span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		</span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w">
+	</span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w">
 	</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -448,6 +448,10 @@ or next page.</p>
 <h1 id="changelog">Changelog</h1>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="friday-24th-june-2016">Friday 24th June 2016:</h2>
+
+<p><a href="/notifications.html">Documentation</a> of the notifications</p>
+
 <h2 id="tuesday-7th-june-2016">Tuesday 7th June 2016:</h2>
 
 <p>Documentation to get real time logs of deployments: <a href="/deployments.html">documentation</a></p>
@@ -514,22 +518,22 @@ or next page.</p>
 <p>Old format:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"scale"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"previous_containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"worker"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"scale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"worker"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
+    </span><span class="s2">"containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -538,23 +542,23 @@ or next page.</p>
 <p>New format:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"scale"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"previous_containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"scale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"previous_containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
+        </span><span class="s2">"containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -590,14 +594,14 @@ or next page.</p>
 <p>Response</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"variables"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050000"</span><span class="p">,</span><span class="w">
-    	</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"RAILS_ENV"</span><span class="p">,</span><span class="w">
-    	</span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
+    </span><span class="s2">"variables"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050000"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"RAILS_ENV"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
     </span><span class="p">},{</span><span class="w">
-    	</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050001"</span><span class="p">,</span><span class="w">
-    	</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"RACK_ENV"</span><span class="p">,</span><span class="w">
-    	</span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
+    	</span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"541013a9736f7563d5050001"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"RACK_ENV"</span><span class="p">,</span><span class="w">
+    	</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"production"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -662,17 +666,17 @@ Headers:
   * <code class="highlighter-rouge">Location</code>: ‘https://api.scalingo.com/v1/apps/example-app/operations/52fd2357356330032b080000’</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"containers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"containers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd2457356330032b020000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd2457356330032b020000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd235735633003210a0001"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worker"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52fd235735633003210a0001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
     </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -702,7 +706,7 @@ Headers:
 <p>Before:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"authentication_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="w">
+  </span><span class="s2">"authentication_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>

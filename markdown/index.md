@@ -479,6 +479,10 @@ This request returns the events 40 to 60.
 
 --- row ---
 
+## Friday 24th June 2016:
+
+[Documentation](/notifications.html) of the notifications
+
 ## Tuesday 7th June 2016:
 
 Documentation to get real time logs of deployments: [documentation](/deployments.html)

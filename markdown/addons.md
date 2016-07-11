@@ -58,7 +58,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH
   -X GET https://api.scalingo.com/v1/apps/example-app/addons
 ```
 
-Returns 201 Created
+Returns 200 OK
 
 ```json
 {
