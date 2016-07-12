@@ -254,7 +254,7 @@ Headers:
       "id": "52fd235735633003210a0001",
       "name": "worker",
       "amount": 1,
-      "size": "M",
+      "size": "M"
     }
   ]
 }

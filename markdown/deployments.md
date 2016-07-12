@@ -94,7 +94,7 @@ Returns 200 OK
                 "username": "john"
             }
         }
-    ]
+    ],
     "meta": {
         "pagination": {
             "current_page": 1,
