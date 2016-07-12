@@ -376,7 +376,7 @@ Example object:
   "type": "edit_domain",
   "type_data": {
       "hostname" : "example.com",
-      "old_ssl" : false
+      "old_ssl" : false,
       "ssl" : true
   }
 }
@@ -606,7 +606,7 @@ Example object:
   "type": "edit_collaborator",
   "type_data": {
       "collaborator": {
-          "id": "51e6bc626edfe40bbb000001"
+          "id": "51e6bc626edfe40bbb000001",
           "email": "test@example.com",
           "username": "text-example",
           "inviter": {
@@ -808,7 +808,7 @@ Example object:
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "type": "delete_variable"
+  "type": "delete_variable",
   "type_data": {
     "name" : "VAR1",
     "value" : "VAL2"
@@ -842,7 +842,7 @@ Example object:
     "email": "john@doe.com",
     "id": "51e6bc626edfe40bbb000001"
   },
-  "type": "add_credit"
+  "type": "add_credit",
   "type_data": {
     "payment_method" : "paypal",
     "value" : 50.0
@@ -895,10 +895,10 @@ Example object:
     "email": "john@doe.com",
     "id": "51e6bc626edfe40bbb000001"
   },
-  "type": "add_payment_method"
+  "type": "add_payment_method",
   "type_data": {
     "company": "Scalingo SAS",
-    "vat_number" : "FR0000000000"
+    "vat_number" : "FR0000000000",
     "payment_method_type": "stripe",
     "stripe": {
       "brand": "mastercard",
@@ -934,7 +934,7 @@ Example object:
     "email": "john@doe.com",
     "id": "51e6bc626edfe40bbb000001"
   },
-  "type": "add_payment_method"
+  "type": "add_payment_method",
   "type_data": {
     "code": "MYVOUCHER"
   }

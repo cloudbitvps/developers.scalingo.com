@@ -95,7 +95,7 @@ Example object:
 ```json
 {
   "id": "54c6909b61646d0001000000",
-  "description": "[Markdown description]"
+  "description": "[Markdown description]",
   "name": "Data stores"
 }
 ```
@@ -197,9 +197,9 @@ Returns 200 OK
 ```json
 {
     "addon_categories": [
-        "category": {
+        {
             "id": "54c6909b61646d0001000000",
-            "description": "[Markdown description]"
+            "description": "[Markdown description]",
             "name": "Data stores"
         }, ...
     ]
