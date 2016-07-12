@@ -2,7 +2,7 @@
 
 --- row ---
 
-** Notification attributes **
+**Notification attributes**
 
 {:.table}
 | field            | type    | description                                   |
@@ -57,7 +57,7 @@ Example of a deployment notification:
   "type_data": {
       "deployment" : {
           "id" : "5343eccd646aa3012a140230",
-          "push": "johndoe",
+          "pusher": "johndoe",
           "git_ref" : "0123456789abcdef"
         }
     }
