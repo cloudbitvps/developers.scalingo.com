@@ -22,7 +22,7 @@ Example object:
 {
   "id" : "5415beca646173000b015000",
   "provisioned_at": "2015-02-22T18:55:02.766+01:00",
-  "deprovisioned_at": nil,
+  "deprovisioned_at": null,
   "plan" : {
     "description" : "[Markdown description]",
     "display_name" : "64MB Free tier",
@@ -65,7 +65,7 @@ Returns 200 OK
     "addons": [{
 	 "id" : "5415beca646173000b015000",
          "provisioned_at": "2015-02-22T18:55:02.766+01:00",
-         "deprovisioned_at": nil,
+         "deprovisioned_at": null,
          "plan" : {
             "description" : "[Markdown description]",
             "display_name" : "64MB Free tier",

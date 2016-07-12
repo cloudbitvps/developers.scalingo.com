@@ -281,7 +281,7 @@ pointing to an [`operation` resource](/operations.html).
 ### Parameters
 
 * `scope`: Array of containers you want to restart.
-  * If empty or nil: restart everything
+  * If empty or null: restart everything
   * Should fit the container types of the application: `["web", "worker"]` or `["web-1"]`
 
 ||| col |||
