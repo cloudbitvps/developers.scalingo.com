@@ -48,19 +48,20 @@ Example of a deployment notification:
   "id": "54dcdd4a73636100011a0000",
   "created_at" : "2015-02-12T18:05:14.226+01:00",
   "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+    "username" : "johndoe",
+    "email" : "john@doe.com",
+    "id" : "51e6bc626edfe40bbb000001"
   },
   "app_id" : "5343eccd646173000a140000",
+  "app_name": "appname",
   "type": "deployment",
   "type_data": {
-      "deployment" : {
-          "id" : "5343eccd646aa3012a140230",
-          "pusher": "johndoe",
-          "git_ref" : "0123456789abcdef"
-        }
-    }
+    "deployment_id" : "5343eccd646aa3012a140230",
+    "pusher": "johndoe",
+    "git_ref" : "0123456789abcdef",
+    "status": "success",
+    "duration": 40
+  }
 }
 ```
 --- row ---
