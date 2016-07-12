@@ -293,7 +293,7 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
   <li><strong>Scale event</strong></li>
 </ul>
 
-<p><em>When:</em> The application has been scaled out 
+<p><em>When:</em> The application has been scaled out
 <code class="highlighter-rouge">type=scale</code></p>
 
 <table class="table">
@@ -339,7 +339,7 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"containers"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"web"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
+          </span><span class="nt">"worker"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -363,9 +363,29 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
   </thead>
   <tbody>
     <tr>
-      <td>deployment</td>
-      <td>object</td>
-      <td>The <a href="/deployment.html">Deployment</a> associated to the event</td>
+      <td>deployment_id</td>
+      <td>string</td>
+      <td>Unique ID of the <a href="/deployment.html">Deployment</a> associated to the event</td>
+    </tr>
+    <tr>
+      <td>pusher</td>
+      <td>string</td>
+      <td>Username of the user having pushed the code</td>
+    </tr>
+    <tr>
+      <td>git_ref</td>
+      <td>string</td>
+      <td>GIT SHA of the deployed code</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>string</td>
+      <td>Status of the deployment (<a href="/deployment.html">details</a></td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>integer</td>
+      <td>Duration of the deployment in seconds</td>
     </tr>
   </tbody>
 </table>
@@ -1469,23 +1489,23 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
             </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rake db:migrate"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdc0073636100011b0000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T17:59:44.962+01:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appname"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deployment"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"deployment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdc0073636100011a0000"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"pusher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"git_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"737c22bde6b05d3262d9908727c54c7692888eef"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54dcdd4a73636100011a0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-12T18:05:14.226+01:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"username"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"51e6bc626edfe40bbb000001"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646173000a140000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appname"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deployment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"deployment_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5343eccd646aa3012a140230"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pusher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"git_ref"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="err">(...)</span><span class="p">],</span><span class="w">
     </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">

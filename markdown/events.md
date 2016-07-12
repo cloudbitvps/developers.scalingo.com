@@ -195,7 +195,7 @@ Example object:
 
 * **Scale event**
 
-_When:_ The application has been scaled out 
+_When:_ The application has been scaled out
 `type=scale`
 
 {:.table}
@@ -227,7 +227,7 @@ Example object:
       },
       "containers" : {
           "web" : 2,
-          "worker" : 1 
+          "worker" : 1
         }
     }
 }
@@ -240,9 +240,13 @@ _When:_ A deployment has been done
 `type=deployment`
 
 {:.table}
-| field      | type   | description                                                |
-| ---------- | -------| ---------------------------------------------------------- |
-| deployment | object | The [Deployment](/deployment.html) associated to the event |
+| field         | type    | description                                                             |
+| ------------- | ------- | ----------------------------------------------------------------------- |
+| deployment_id | string  | Unique ID of the [Deployment](/deployment.html) associated to the event |
+| pusher        | string  | Username of the user having pushed the code                             |
+| git_ref       | string  | GIT SHA of the deployed code                                            |
+| status        | string  | Status of the deployment ([details](/deployment.html)                   |
+| duration      | integer | Duration of the deployment in seconds                                   |
 
 ||| col |||
 
@@ -979,23 +983,23 @@ Response
             "command": "rake db:migrate"
         }
     }, {
-        "id": "54dcdc0073636100011b0000",
-        "created_at": "2015-02-12T17:59:44.962+01:00",
-        "user": {
-            "username": "johndoe",
-            "email": "john@doe.com",
-            "id": "51e6bc626edfe40bbb000001"
-        },
-        "app_id": "5343eccd646173000a140000",
-        "app_name": "appname",
-        "type": "deployment",
-        "type_data": {
-            "deployment": {
-                "id": "54dcdc0073636100011a0000",
-                "pusher": "johndoe",
-                "git_ref": "737c22bde6b05d3262d9908727c54c7692888eef"
-            }
-        }
+      "id": "54dcdd4a73636100011a0000",
+      "created_at" : "2015-02-12T18:05:14.226+01:00",
+      "user" : {
+        "username" : "johndoe",
+        "email" : "john@doe.com",
+        "id" : "51e6bc626edfe40bbb000001"
+      },
+      "app_id" : "5343eccd646173000a140000",
+      "app_name": "appname",
+      "type": "deployment",
+      "type_data": {
+        "deployment_id" : "5343eccd646aa3012a140230",
+        "pusher": "johndoe",
+        "git_ref" : "0123456789abcdef",
+        "status": "success",
+        "duration": 40
+      }
     }, (...)],
     "meta": {
         "pagination": {
