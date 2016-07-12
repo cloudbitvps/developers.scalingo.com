@@ -481,7 +481,7 @@ This request returns the events 40 to 60.
 
 ## Friday 24th June 2016:
 
-[Documentation](/notifications.html) of the notifications
+Documentation of the [notifications](/notifications.html)
 
 ## Tuesday 7th June 2016:
 
@@ -566,7 +566,7 @@ Old format:
     },
     "containers" : {
         "web" : 2,
-        "worker" : 1 
+        "worker" : 1
     }
 }
 ```
@@ -591,7 +591,7 @@ New format:
         },
         "containers" : {
             "web" : 2,
-            "worker" : 1 
+            "worker" : 1
         }
     }
 }
@@ -671,7 +671,7 @@ Response
    // ...
    "links": {
       "output": "https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
-   }  
+   }
 }
 ```
 
@@ -724,7 +724,7 @@ Headers:
 --- row ---
 
 ## Sunday 1st March 2015:
-  
+
   The 404 not found error got a new field `resource` to define the resource
   which has not been found.
 
