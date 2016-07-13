@@ -951,6 +951,10 @@ With this list of events, you can reconstruct the timeline of an application.
 
 `GET https://api.scalingo.com/v1/apps/[:app]/events`
 
+### Parameters
+
+* `from` (Optional): Send the event from the last N hours. (Override any pagination options)
+
 > Feature: pagination
 
 ||| col |||
