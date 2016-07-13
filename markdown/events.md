@@ -953,7 +953,7 @@ With this list of events, you can reconstruct the timeline of an application.
 
 ### Parameters
 
-* `from` (Optional): Send the event from the last N hours. (Override any pagination options)
+* `from` (Optional, min: 1, max: 72): Send the event from the last N hours. (Override any pagination options)
 
 > Feature: pagination
 
