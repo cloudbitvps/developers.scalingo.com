@@ -506,8 +506,7 @@ The metrics available are:
 
 If the metrics type is `router` the container and index params are ignored.
 But you can pass a `status_code` get variable which will filter router metrics by
-their status_code.
-
+their status code.
 
 Possible values are:
 
