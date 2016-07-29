@@ -529,9 +529,10 @@ and Swap memory. But also the number of request per minute handled by your app.<
 <p><code class="highlighter-rouge">GET /stats/:metrics(/:container)(/:index)'</code></p>
 
 <p>The metrics are aggregated by container types. If a type have more than one
-container it will return the mean value of all the containers of the same type.</p>
+container and the cotainer index is not passed, it will return the mean value
+of all the containers of the same type.</p>
 
-<p>The metrics available are:</p>
+<p>The <code class="highlighter-rouge">metrics</code> available are:</p>
 
 <ul>
   <li>cpu</li>
@@ -565,7 +566,7 @@ their status code.</p>
 <p>Example request</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web/1?since=48
 </code></pre>
 </div>
 
