@@ -493,6 +493,35 @@ and Swap memory. But also the number of request per minute handled by your app.
 
 `GET /stats/:metrics(/:container)(/:index)'`
 
+
+The metrics are aggregated by container types. If a type have more than one
+container it will return the mean value of all the containers of the same type.
+
+The metrics available are:
+
+* cpu
+* memory
+* swap
+* router
+
+If the metrics type is `router` the container and index params are ignored.
+But you can pass a `status_code` get variable which will filter router metrics by
+their status_code.
+
+
+Possible values are:
+
+* 1XX
+* 2XX
+* 3XX
+* 4XX
+* 5XX
+* all
+
+### Parameters
+
+* `since`: Viewing period in hour
+
 ||| col |||
 
 Example request
@@ -517,7 +546,8 @@ Returns 200 OK
 }, {
 	"time":"2016-07-26T16:16:00Z",
 	"value":7.579428571428572e+06
-}, ... ]
+}, ...
+]
 ```
 
 --- row ---
