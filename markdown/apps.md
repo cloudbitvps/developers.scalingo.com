@@ -495,9 +495,10 @@ and Swap memory. But also the number of request per minute handled by your app.
 
 
 The metrics are aggregated by container types. If a type have more than one
-container it will return the mean value of all the containers of the same type.
+container and the cotainer index is not passed, it will return the mean value
+of all the containers of the same type.
 
-The metrics available are:
+The `metrics` available are:
 
 * cpu
 * memory
@@ -527,7 +528,7 @@ Example request
 
 ```
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web/1?since=48
 ```
 
 Returns 200 OK
