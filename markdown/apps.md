@@ -495,7 +495,7 @@ and Swap memory. But also the number of request per minute handled by your app.
 
 
 The metrics are aggregated by container types. If a type have more than one
-container and the cotainer index is not passed, it will return the mean value
+container and the container index is not passed, it will return the mean value
 of all the containers of the same type.
 
 The `metrics` available are:
