@@ -528,6 +528,39 @@ and Swap memory. But also the number of request per minute handled by your app.<
 
 <p><code class="highlighter-rouge">GET /stats/:metrics(/:container)(/:index)'</code></p>
 
+<p>The metrics are aggregated by container types. If a type have more than one
+container it will return the mean value of all the containers of the same type.</p>
+
+<p>The metrics available are:</p>
+
+<ul>
+  <li>cpu</li>
+  <li>memory</li>
+  <li>swap</li>
+  <li>router</li>
+</ul>
+
+<p>If the metrics type is <code class="highlighter-rouge">router</code> the container and index params are ignored.
+But you can pass a <code class="highlighter-rouge">status_code</code> get variable which will filter router metrics by
+their status code.</p>
+
+<p>Possible values are:</p>
+
+<ul>
+  <li>1XX</li>
+  <li>2XX</li>
+  <li>3XX</li>
+  <li>4XX</li>
+  <li>5XX</li>
+  <li>all</li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">since</code>: Viewing period in hour</li>
+</ul>
+
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example request</p>
 
@@ -550,7 +583,8 @@ and Swap memory. But also the number of request per minute handled by your app.<
 <span class="p">},</span> <span class="p">{</span>
 	<span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-07-26T16:16:00Z"</span><span class="p">,</span>
 	<span class="s2">"value"</span><span class="p">:</span><span class="mf">7.579428571428572</span><span class="nx">e</span><span class="o">+</span><span class="mi">06</span>
-<span class="p">},</span> <span class="p">...</span> <span class="p">]</span>
+<span class="p">},</span> <span class="p">...</span>
+<span class="p">]</span>
 </code></pre>
 </div>
 
