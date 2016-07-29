@@ -519,12 +519,46 @@ environment your application.</p>
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<h2 id="get-stats-of-an-application">Get stats of an application</h2>
+<h2 id="get-metrics-data-of-an-application">Get metrics data of an application</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <p>The stats endpoint let you get metrics about the containers of an application.
 These data include the CPU usage and the memory usage, splitted between RAM
-and Swap memory.</p>
+and Swap memory. But also the number of request per minute handled by your app.</p>
+
+<p><code class="highlighter-rouge">GET /stats/:metrics(/:container)(/:index)'</code></p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">[{</span>
+	<span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-07-26T15:34:00Z"</span><span class="p">,</span>
+	<span class="s2">"value"</span><span class="p">:</span><span class="mf">5.925774222222222</span><span class="nx">e</span><span class="o">+</span><span class="mi">06</span>
+<span class="p">},</span> <span class="p">{</span>
+	<span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-07-26T15:48:00Z"</span><span class="p">,</span>
+	<span class="s2">"value"</span><span class="p">:</span><span class="mf">6.561060571428572</span><span class="nx">e</span><span class="o">+</span><span class="mi">06</span>
+<span class="p">},</span> <span class="p">{</span>
+	<span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-07-26T16:02:00Z"</span><span class="p">,</span>
+	<span class="s2">"value"</span><span class="p">:</span><span class="mf">7.012790857142857</span><span class="nx">e</span><span class="o">+</span><span class="mi">06</span>
+<span class="p">},</span> <span class="p">{</span>
+	<span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-07-26T16:16:00Z"</span><span class="p">,</span>
+	<span class="s2">"value"</span><span class="p">:</span><span class="mf">7.579428571428572</span><span class="nx">e</span><span class="o">+</span><span class="mi">06</span>
+<span class="p">},</span> <span class="p">...</span> <span class="p">]</span>
+</code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="get-real-time-stats-of-an-application">Get real time stats of an application</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>To get real time metrics, you can use the following endpoint:</p>
 
 <p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/stats</code></p>
 

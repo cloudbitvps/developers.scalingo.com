@@ -483,13 +483,50 @@ Returns 200 OK
 
 --- row ---
 
-## Get stats of an application
+## Get metrics data of an application
 
 --- row ---
 
 The stats endpoint let you get metrics about the containers of an application.
 These data include the CPU usage and the memory usage, splitted between RAM
-and Swap memory.
+and Swap memory. But also the number of request per minute handled by your app.
+
+`GET /stats/:metrics(/:container)(/:index)'`
+
+||| col |||
+
+Example request
+
+```
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web
+```
+
+Returns 200 OK
+
+```javascript
+[{
+	"time":"2016-07-26T15:34:00Z",
+	"value":5.925774222222222e+06
+}, {
+	"time":"2016-07-26T15:48:00Z",
+	"value":6.561060571428572e+06
+}, {
+	"time":"2016-07-26T16:02:00Z",
+	"value":7.012790857142857e+06
+}, {
+	"time":"2016-07-26T16:16:00Z",
+	"value":7.579428571428572e+06
+}, ... ]
+```
+
+--- row ---
+
+## Get real time stats of an application
+
+--- row ---
+
+To get real time metrics, you can use the following endpoint:
 
 `GET https://api.scalingo.com/v1/apps/[:app]/stats`
 
