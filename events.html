@@ -264,8 +264,16 @@ in the structure in a <code class="highlighter-rouge">type_data</code> attribute
       <td>array</td>
       <td>The scope of the restart, null is all</td>
     </tr>
+    <tr>
+      <td>addon_provider</td>
+      <td>string</td>
+      <td>The name of the addon which restarted the application</td>
+    </tr>
   </tbody>
 </table>
+
+<p><strong>Note:</strong> If an addon restart the application, the user array won’t be present.
+And if an user restart the application, the addon_name will be blank.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example object:</p>

@@ -165,9 +165,13 @@ _When:_ The application or some containers have been restarted
 `type=restart`
 
 {:.table}
-| field      | type  | description                           |
-| ---------- | ----- | ------------------------------------- |
-| scope      | array | The scope of the restart, null is all |
+| field          | type   | description                                           |
+| -------------- | ------ | ----------------------------------------------------- |
+| scope          | array  | The scope of the restart, null is all                 |
+| addon_provider | string | The name of the addon which restarted the application |
+
+**Note:** If an addon restart the application, the user array won't be present.
+And if an user restart the application, the addon_name will be blank.
 
 ||| col |||
 
