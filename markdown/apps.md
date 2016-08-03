@@ -434,7 +434,7 @@ Similar to `scalingo run`
 
 To run an interactive task, you have to start a one-off container. As its name
 mean it's a container you will start for a given task and which will be
-destroyed after it.  It can be any command which will be executed in the
+destroyed after it. It can be any command which will be executed in the
 environment your application.
 
 <blockquote>
@@ -448,19 +448,21 @@ See [how to handle the returned `attach_url`](/one-off.html)
 
 * `command`: Command line which has to be run (example: "bash")
 * `env`: Environment variables to inject into the container (additionaly to those of your apps)
+* `size`: Size of the container (e.g. S, M, etc). The size by default is M.
 
 ||| col |||
 
 Example request:
 
 ```sh
-curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/run -d \
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u ":$AUTH_TOKEN" \
+  -X POST 'https://api.scalingo.com/v1/apps/example-app/run' -d \
   '{
     "command": "bundle exec rails console",
     "env": {
-      "VAR1" => "VAL1"
-    }
+      "VAR1": "VAL1"
+    },
+    "size": "L"
   }'
 ```
 
@@ -470,8 +472,8 @@ Returns 200 OK
 {
   "container": {
     "id" : "5250424112dba4edf0000024",
-    "type" : "job",
-    "type_index" : 0,
+    "type" : "one-off",
+    "type_index" : 1,
     "created_at" : "2015-02-17T22:10:32.692+01:00",
     "memory" : 5.36870912e+08,
     "state" : "booting",

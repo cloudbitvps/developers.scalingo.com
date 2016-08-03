@@ -4,11 +4,11 @@
 
 ## Definition
 
-To add an addon to our platorm, you have to write a manifest
+To add an addon to our platform, you have to write a manifest
 defining how we are going to communicate with your services.
 The manifest is not strictly identical to Heroku but is quite,
-of course if you need to modify anything, you just have ton contact
-us. [addons@scalingo.com](mailto:addons@scalingo.com)
+of course if you need to modify anything, you just have to contact
+us at [addons@scalingo.com](mailto:addons@scalingo.com).
 
 --- row ---
 
