@@ -7,11 +7,8 @@ super easily. This document describe its schema in detail.
 
 ## The manifest
 
-In some situations, it is mandatory for us
-to get a description of the project. What is/are the required addons, environment
-variables, etc. This document describes how to write a JSON manifest file which
+This document describes how to write a JSON manifest file which
 will be interpreted by our platform when someone wants to deploy a project.
-
 The file must be located at the root of the project and be named either `app.json`
 or `scalingo.json`. The latter will always take priority over the first one.
 
