@@ -24,6 +24,7 @@ or `scalingo.json`. The latter will always take priority over the first one.
 | -------------- | ------ | ---------------------------------------------- |
 | name           | string | Complete name of the project                   |
 | _repository_   | string | Location of the GIT repository of the project  |
+| _ref_          | string | Branch name or commit ID of the code to use    |
 | _description_  | string | Description in one or two sentences of the app |
 | _logo_         | string | URL to the logo of the project		             |
 | _website_      | string | Official website of the application if any     |
