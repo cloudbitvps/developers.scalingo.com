@@ -10,12 +10,9 @@ super easily. This document describe its schema in detail.</p>
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="the-manifest">The manifest</h2>
 
-<p>In some situations, it is mandatory for us
-to get a description of the project. What is/are the required addons, environment
-variables, etc. This document describes how to write a JSON manifest file which
-will be interpreted by our platform when someone wants to deploy a project.</p>
-
-<p>The file must be located at the root of the project and be named either <code class="highlighter-rouge">app.json</code>
+<p>This document describes how to write a JSON manifest file which
+will be interpreted by our platform when someone wants to deploy a project.
+The file must be located at the root of the project and be named either <code class="highlighter-rouge">app.json</code>
 or <code class="highlighter-rouge">scalingo.json</code>. The latter will always take priority over the first one.</p>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
@@ -148,24 +145,24 @@ deployed.</p>
 <p>File scalingo.json of <a href="https://github.com/Scalingo/sample-go-martini/tree/dev-oneclick">sample-go-martini</a></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Go Martini"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample web application using the Go framework Martini"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scalingo.com/logo.svg"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/Scalingo/sample-go-martini"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scalingo.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"VAR_TEST_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test variable number 1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Go Martini"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample web application using the Go framework Martini"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scalingo.com/logo.svg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/Scalingo/sample-go-martini"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scalingo.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"VAR_TEST_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test variable number 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"VAR_SECRET_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generated variable 1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"generator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secret"</span><span class="w">
+    </span><span class="nt">"VAR_SECRET_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generated variable 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"generator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secret"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"addons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"scalingo-redis"</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"postdeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo hello"</span><span class="w">
+  </span><span class="nt">"addons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"scalingo-redis"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"postdeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo hello"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -177,7 +174,7 @@ deployed.</p>
 <p>This <code class="highlighter-rouge">scripts</code> key is now deprecated in the scalingo.json in favor of Procfile. You can find information
 on Procfile on the <a href="http://doc.scalingo.com/internals/procfile.html">dedicated page</a>.</p>
 
-<p>The only available key for the <code class="highlighter-rouge">scripts</code> object is <code class="highlighter-rouge">postdeploy</code>. </p>
+<p>The only available key for the <code class="highlighter-rouge">scripts</code> object is <code class="highlighter-rouge">postdeploy</code>.</p>
 
 <table class="table">
   <thead>
@@ -196,7 +193,7 @@ on Procfile on the <a href="http://doc.scalingo.com/internals/procfile.html">ded
   </tbody>
 </table>
 
-<p>You can get more information on this feature on the <a href="http://doc.scalingo.com/app/postdeploy-hook.html#workflow">dedicated page</a>. </p>
+<p>You can get more information on this feature on the <a href="http://doc.scalingo.com/app/postdeploy-hook.html#workflow">dedicated page</a>.</p>
 
 <h2 id="example">Example</h2>
 
