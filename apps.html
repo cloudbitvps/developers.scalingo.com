@@ -470,7 +470,7 @@ collaborators</li>
 
 <p>To run an interactive task, you have to start a one-off container. As its name
 mean it’s a container you will start for a given task and which will be
-destroyed after it.  It can be any command which will be executed in the
+destroyed after it. It can be any command which will be executed in the
 environment your application.</p>
 
 <blockquote>
@@ -485,20 +485,22 @@ environment your application.</p>
 <ul>
   <li><code class="highlighter-rouge">command</code>: Command line which has to be run (example: “bash”)</li>
   <li><code class="highlighter-rouge">env</code>: Environment variables to inject into the container (additionaly to those of your apps)</li>
+  <li><code class="highlighter-rouge">size</code>: Size of the container (e.g. S, M, etc). The size by default is M.</li>
 </ul>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example request:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
-  -X POST <span class="s1">'https://api.scalingo.com/v1/apps/example-app/run -d \
-  '</span><span class="o">{</span>
-    <span class="s2">"command"</span>: <span class="s2">"bundle exec rails console"</span>,
-    <span class="s2">"env"</span>: <span class="o">{</span>
-      <span class="s2">"VAR1"</span> <span class="o">=</span>&gt; <span class="s2">"VAL1"</span>
-    <span class="o">}</span>
-  <span class="o">}</span><span class="s1">'
-</span></code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+  -X POST <span class="s1">'https://api.scalingo.com/v1/apps/example-app/run'</span> -d <span class="se">\</span>
+  <span class="s1">'{
+    "command": "bundle exec rails console",
+    "env": {
+      "VAR1": "VAL1"
+    },
+    "size": "L"
+  }'</span>
+</code></pre>
 </div>
 
 <p>Returns 200 OK</p>
@@ -506,8 +508,8 @@ environment your application.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"container"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5250424112dba4edf0000024"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"one-off"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-17T22:10:32.692+01:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.36870912e+08</span><span class="p">,</span><span class="w">
     </span><span class="s2">"state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"booting"</span><span class="p">,</span><span class="w">

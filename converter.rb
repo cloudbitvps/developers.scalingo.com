@@ -40,6 +40,8 @@ def guess_layout(dir)
     return "addon-provider-api"
   elsif dir.end_with?("one-click")
     return "one-click-api"
+  elsif dir.end_with?("scalingo-json-schema")
+    return "scalingo-json-schema"
   end
   return "default"
 end
