@@ -5,132 +5,33 @@ layout: one-click-api
 <div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="one-click-deployment">One click deployment</h1>
 
 <p>One click deployment is a feature of the Scalingo platform which let you define
-a deployment manifest to let people deploy your software super easily.</p>
+a deployment manifest to let people deploy a software super easily.</p>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="the-manifest">The manifest</h2>
 
-<p>To allow people to deploy your project in one click, it is necessary for us
+<p>To let people deploy your project in one click, it is necessary for us
 to get a description of the project. What is/are the required addons, environment
-variables etc. This document describes how to write a JSON manifest file which
+variables, etc. This document describes how to write a JSON manifest file which
 will be interpretated by our platform when someone wants to deploy your project.</p>
 
-<p>The file has to be located at the root of your project and be named either <code class="highlighter-rouge">app.json</code>
-or <code class="highlighter-rouge">scalingo.json</code>, the last will always be prioritary on the first.</p>
+<p>The file must be located at the root of your project and be named either <code class="highlighter-rouge">app.json</code>
+or <code class="highlighter-rouge">scalingo.json</code>. The latter will always take priority over the first one.</p>
 
-</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <p><strong>The manifest attributes</strong></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>field</th>
-      <th>type</th>
-      <th>description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td>string</td>
-      <td>Complete name of the project</td>
-    </tr>
-    <tr>
-      <td>repository</td>
-      <td>string</td>
-      <td>Location of the GIT repository of the project</td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td>string</td>
-      <td>Description in one or two sentences of the app</td>
-    </tr>
-    <tr>
-      <td>logo</td>
-      <td>string</td>
-      <td>URL to the logo of the project</td>
-    </tr>
-    <tr>
-      <td>website</td>
-      <td>string</td>
-      <td>Official website of the application if any</td>
-    </tr>
-    <tr>
-      <td>env</td>
-      <td>object</td>
-      <td>Environment of the application, see below</td>
-    </tr>
-    <tr>
-      <td>addons</td>
-      <td>array</td>
-      <td>List of all the addons required to run the app</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Environment</strong></p>
-
-<p>The keys of the environment object are the name of the variables you want to add</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>field</th>
-      <th>type</th>
-      <th>description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">VAR_NAME</code></td>
-      <td>string</td>
-      <td>key of the object is the name of the env variable</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>For each variable, it has to respect the following properties</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>field</th>
-      <th>type</th>
-      <th>description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>description</td>
-      <td>string</td>
-      <td>Description of the variable to explain what it does</td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>string</td>
-      <td>(if no generator) Default value of the variable</td>
-    </tr>
-    <tr>
-      <td>generator</td>
-      <td>string</td>
-      <td>(if no value) Use a generator to define a default value</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Two generators are available <code class="highlighter-rouge">secret</code> or <code class="highlighter-rouge">url</code>:</p>
+<p>A complete description of the manifest attributes is <a href="/scalingo-json-schema">here</a>. 
+To setup the one click deployment on your project, you simply need to link 
+to <code class="highlighter-rouge">https://my.scalingo.com/deploy</code>. Then we get the source code from these 
+places:</p>
 
 <ul>
-  <li>
-    <p><code class="highlighter-rouge">secret</code>: will generate a unique token as a default value of the variable.
-(Useful for instance when you’ve to generate a unique encryption seed key),
-example: <code class="highlighter-rouge">90ffea2d3071e8d86cafb89ff50608839fa26084967ab59a8d8d67319f79a</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">url</code>: will automatically insert the URL of the application will have once
-deployed.</p>
-  </li>
+  <li>Using the referer HTTP header if the link is on a github repository page</li>
+  <li>The repository pointed out by the <code class="highlighter-rouge">source</code> parameters in the url query (i.e. <code class="highlighter-rouge">https://my.scalingo.com/deploy?source=https://github.com/&lt;Your account&gt;/&lt;Your project&gt;#custom_branch</code>)</li>
+  <li>The <code class="highlighter-rouge">repository</code> key in the <code class="highlighter-rouge">scalingo.json</code> located at the root of one of the above-mentioned source</li>
 </ul>
+
+<p>The latter in the list, the higher prioriy it takes.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>File scalingo.json of <a href="https://github.com/Scalingo/sample-go-martini">sample-go-martini</a></p>
@@ -155,22 +56,22 @@ deployed.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<h2 id="example">Example</h2>
+<h2 id="the-procfile">The Procfile</h2>
 
-</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<p>This example comes from a concrete project located <a href="https://github.com/Scalingo/sample-go-martini">on Github</a></p>
+<p>The Procfile is a way to define how the platform will try to start your containers. In this file, you can define all the different process you would like to run in your project. It is commonly used to define how to start workers which will consume asynchronous jobs.</p>
 
-<p>What is doing the example on the other side of:</p>
+<p>You can get more information on the Procfile on the <a href="http://doc.scalingo.com/internals/procfile.html">dedicated page</a>.</p>
 
-<ul>
-  <li>Define the name of the project</li>
-  <li>Describe in a sentence the purpose of the project</li>
-  <li>Location of the logo</li>
-  <li>URL of the GIT repository</li>
-  <li>Official website of the project</li>
-  <li>List of the environment variables with their description and optional generator <code class="highlighter-rouge">VAR_TEST_1</code> and <code class="highlighter-rouge">VAR_SECRET_1</code></li>
-  <li>Ask for the provisioning of a redis addon.</li>
-</ul>
+<p><strong>Postdeploy hook</strong></p>
+
+<p>When you deploy your application, you may want to trigger custom actions automatically after the deployment succeeded. This hook is then exactly what you need. This hook will automatically starts the specified command at the end of your deployment.</p>
+
+<p>To setup a post-deployment hook, you just have to add a <code class="highlighter-rouge">postdeploy</code> entry in your <a href="http://doc.scalingo.com/internals/procfile.html">Procfile</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>postdeploy: command you want to run
+</code></pre>
+</div>
+
+<p>You can get more information on this feature on the <a href="http://doc.scalingo.com/app/postdeploy-hook.html#workflow">dedicated page</a>. </p>
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div>
