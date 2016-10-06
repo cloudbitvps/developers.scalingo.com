@@ -17,7 +17,7 @@ or `scalingo.json`. The latter will always take priority over the first one.
 
 **The manifest attributes**
 
-A complete description of the manifest attributes is [here](/one-click). 
+A complete description of the manifest attributes is [here](/scalingo-json-schema). 
 To setup the one click deployment on your project, you simply need to link 
 to `https://my.scalingo.com/deploy`. Then we get the source code from these 
 places:
