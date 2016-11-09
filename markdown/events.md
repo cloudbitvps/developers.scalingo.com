@@ -402,7 +402,6 @@ _When:_ Remove a custom domain from an app
 | field     | type    | description                        |
 | --------- | ------- | ---------------------------------- |
 | hostname  | string  | Hostname of the custom domain      |
-| ssl       | boolean | Custom SSL certificate added       |
 
 ||| col |||
 
@@ -421,8 +420,7 @@ Example object:
   "app_name": "appname",
   "type": "delete_domain",
   "type_data": {
-      "hostname" : "example.com",
-      "ssl" : true
+      "hostname" : "example.com"
   }
 }
 ```
