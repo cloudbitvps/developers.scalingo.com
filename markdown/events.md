@@ -751,11 +751,14 @@ _When:_ Each time the bulk updates is used
 | ------------------------ | ------ | ----------------------------------- |
 | new_vars                 | array  | List of the newly created variables |
 | updated_vars             | array  | List of the updated variables       |
+| deleted_vars             | array  | List of the deleted variables       |
 | new_vars[].name          | string | Name of the variable                |
 | new_vars[].value         | string | Value of the variable               |
 | updated_vars[].name      | string | Name of the variables               |
 | updated_vars[].old_value | string | Old value of the updated variable   |
 | updated_vars[].value     | string | New value of the updated variable   |
+| deleted_vars[].name      | string | Name of the variable                |
+| deleted_vars[].value     | string | Value of the variable               |
 
 ||| col |||
 
