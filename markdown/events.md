@@ -938,7 +938,7 @@ Example object:
     "email": "john@doe.com",
     "id": "51e6bc626edfe40bbb000001"
   },
-  "type": "add_payment_method",
+  "type": "add_voucher",
   "type_data": {
     "code": "MYVOUCHER"
   }
