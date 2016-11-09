@@ -52,6 +52,11 @@ Example object:
 _When:_ When the application is created
 `type=new_app`
 
+{:.table}
+| field      | type   | description                                                                  |
+| ---------- | ------ | ---------------------------------------------------------------------------- |
+| git_source | string | Optional - Reference to the GIT repository in the case of a one-click deploy |
+
 ||| col |||
 
 Example object:
