@@ -185,6 +185,55 @@ Returns 200 OK
 
 --- row ---
 
+## Get containers list
+
+--- row ---
+
+`GET https://api.scalingo.com/v1/apps/[:app]/containers`
+
+This request lists the different container types of a given application. It includes
+how many containers and the size of the containers for each type.
+
+--- row ---
+
+**Container attributes**
+
+{:.table}
+| field          | type    | description                                     |
+| -------------- | ------- | ----------------------------------------------- |
+| name           | string  | Type of container (web, worker, etc.)           |
+| amount         | integer | Amount of containers of the given type          |
+| size           | string  | Size of the containers of this type (S/M/XL/..) |
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
+  -X GET 'https://api.scalingo.com/v1/apps/example-app/containers'
+```
+
+Returns 200 OK
+
+```json
+{
+  "containers": [
+    {
+      "name": "web",
+      "amount": 2,
+      "size": "L"
+    }, {
+      "name": "worker",
+      "amount": 1,
+      "size": "M"
+    }
+  ]
+}
+```
+
+--- row ---
+
 ## Scale an application
 
 --- row ---
