@@ -212,10 +212,75 @@ application are deployed.</p>
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="trigger-manually-a-deployment-from-a-github-repository">Trigger manually a deployment from a github repository</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:app]/deployments</code></p>
+
+<p>With this helper, you’ll be able to trigger a deployment from your application
+without doing it by a <code class="highlighter-rouge">git push</code></p>
+
+<blockquote>
+  <p>Your application must have been created with the <code class="highlighter-rouge">git_source</code> attribute to be
+deployable this way.</p>
+</blockquote>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h3 id="attributes">Attributes</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"deployment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"git_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHA git to deploy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Archive with the source"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+     -X POST https://api.scalingo.com/v1/apps/example-app/deployments -d <span class="se">\</span>
+     <span class="s1">'{
+       "deployment": {
+         "git_ref": "master",
+         "source_url": "https://github.com/Scalingo/sample-go-martini/archive/master.tar.gz"
+       }
+     }'</span>
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"deployment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"5e34a76a-24b7-4d50-be96-942ca986a786"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2016-12-16T16:33:58.250+01:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"app_id"</span><span class="p">:</span><span class="s2">"529ba36e65d972e883203922"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finished_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"building"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"git_ref"</span><span class="p">:</span><span class="s2">"master"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_git_ref"</span><span class="p">:</span><span class="s2">"eb5454c314e2e9c8f98efa9b4422476b391df185"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pusher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"51161e5ef1e42617000001"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"output"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="get-the-output-of-the-deployment">Get the output of the deployment</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]</code></p>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]/output</code></p>
 
 <p>This endpoint will return all the log of the deployment. Those are basically what
 you have seen in your terminal when running <code class="highlighter-rouge">git push</code>.</p>
@@ -224,7 +289,7 @@ you have seen in your terminal when running <code class="highlighter-rouge">git 
 <p>Example request</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: text/plain"</span> -u <span class="s2">":</span><span class="nv">$AUTH_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
-  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000
+  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output
 </code></pre>
 </div>
 

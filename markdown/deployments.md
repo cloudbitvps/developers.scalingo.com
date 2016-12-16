@@ -146,11 +146,78 @@ Returns 200 OK
 
 --- row ---
 
+## Trigger manually a deployment from a github repository
+
+--- row ---
+
+`POST https://api.scalingo.com/v1/apps/[:app]/deployments`
+
+With this helper, you'll be able to trigger a deployment from your application
+without doing it by a `git push`
+
+> Your application must have been created with the `git_source` attribute to be
+deployable this way.
+
+--- row ---
+
+### Attributes
+
+```json
+{
+  "deployment": {
+    "git_ref": "SHA git to deploy",
+    "source_url": "Archive with the source"
+  }
+}
+```
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u ":$AUTH_TOKEN" \
+     -X POST https://api.scalingo.com/v1/apps/example-app/deployments -d \
+     '{
+       "deployment": {
+         "git_ref": "master",
+         "source_url": "https://github.com/Scalingo/sample-go-martini/archive/master.tar.gz"
+       }
+     }'
+```
+
+Returns 200 OK
+
+```json
+{
+  "deployment": {
+    "id":"5e34a76a-24b7-4d50-be96-942ca986a786",
+    "created_at":"2016-12-16T16:33:58.250+01:00",
+    "app_id":"529ba36e65d972e883203922",
+    "finished_at":null,
+    "status":"building",
+    "git_ref":"master",
+    "previous_git_ref":"eb5454c314e2e9c8f98efa9b4422476b391df185",
+    "duration":0,
+    "pusher": {
+      "username":"user",
+      "email":"user@example.com",
+      "id":"51161e5ef1e42617000001"
+    },
+    "links": {
+      "output": "https://api.scalingo.com/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
+    }
+  }
+}
+```
+
+--- row ---
+
 ## Get the output of the deployment
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]`
+`GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]/output`
 
 This endpoint will return all the log of the deployment. Those are basically what
 you have seen in your terminal when running `git push`.
@@ -161,7 +228,7 @@ Example request
 
 ```shell
 curl -H "Accept: text/plain" -u ":$AUTH_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000
+  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output
 ```
 
 Returns 200 OK
