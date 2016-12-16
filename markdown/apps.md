@@ -55,6 +55,12 @@ Example object:
   and hyphens, it can't have an hyphen at the beginning or at the end, nor two
   hyphens in a row.
 
+### Custom Header
+
+* `X-Dry-Run: <boolean>`: If set to true, the operation will only check if the
+  application can be created with the given parameters. The same errors and responses
+  are sent, but the application **is not** actually created.
+
 ### Free usage limit
 
 You can only have 1 application without having defined [a payment

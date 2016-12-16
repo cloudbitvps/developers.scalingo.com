@@ -28,7 +28,7 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Friday 29th July 2016
+> Last update: Friday 16th Dec 2016
 
 ||| col |||
 
@@ -478,6 +478,10 @@ This request returns the events 40 to 60.
 # Changelog
 
 --- row ---
+
+## Friday 16th Dec 2016:
+
+Add Header `X-Dry-Run` for apps creation endpoint `POST /apps`
 
 ## Friday 29th July 2016:
 
