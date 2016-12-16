@@ -55,7 +55,7 @@ Example object:
   and hyphens, it can't have an hyphen at the beginning or at the end, nor two
   hyphens in a row.
 * `app.git_source`: (*Optional*) URL to the future github repository if your need
-  to deploy from there without going through the `git push workflow`
+  to deploy from there without going through the `git push` workflow
 
 ### Custom Header
 
