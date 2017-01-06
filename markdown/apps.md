@@ -13,7 +13,7 @@
 | updated_at     | date   | last time the application has been updated       |
 | git_url        | string | URL to the GIT remote to access your application |
 | owner          | object | information about the owner of the application   |
-| urls           | array  | list of custom domains to access to your project |
+| url            | string | platform allocated URL to access to your app     |
 | links          | object | object of related link like `deployments_stream` |
 
 ||| col |||
@@ -32,9 +32,7 @@ Example object:
     "email": "user@example.com",
     "id": "54100245736f7563d5000000"
   },
-  "urls": [
-    "example-app.scalingo.io"
-  ],
+  "url": "https://example-app.scalingo.io",
   "links": {
     "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
   }
@@ -97,9 +95,7 @@ Returns 201 Created
             "id": "54100245736f7563d5000000"
         },
         "updated_at": "2014-09-10T10:17:52.690+02:00",
-        "urls": [
-            "example-app.scalingo.io"
-        ],
+        "url": "https://example-app.scalingo.io",
         "links": {
           "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
         }
