@@ -173,13 +173,7 @@ Returns 200 OK
     "updated_at" : "2015-02-02T18:00:18.041+01:00",
     "created_at" : "2013-07-19T14:59:18.329+02:00",
     "last_deployed_by" : "example-user",
-    "domains" : [
-      {
-        "id" : "53e4a2ef7f784210ea000123",
-        "name" : "www.example.com",
-        "ssl" : false
-      }
-    ],
+    "url": "https://example-app.scalingo.io",
     "links": {
       "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
     }
