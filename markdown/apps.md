@@ -45,7 +45,7 @@ Example object:
 
 --- row ---
 
-`POST https://api.scalingo.com/apps`
+`POST https://api.scalingo.com/v1/apps`
 
 ### Parameters
 
@@ -107,7 +107,7 @@ Returns 201 Created
 
 ## List your applications
 
-`GET https://api.scalingo.com/apps`
+`GET https://api.scalingo.com/v1/apps`
 
 List all your applications and the one your are collaborator for.
 
