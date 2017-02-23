@@ -146,19 +146,17 @@ Returns 200 OK
 
 --- row ---
 
-## Trigger manually a deployment from a github repository
+## Trigger manually a deployment from a GitHub repository
 
 --- row ---
 
 `POST https://api.scalingo.com/v1/apps/[:app]/deployments`
 
 With this helper, you'll be able to trigger a deployment from your application
-without doing it by a `git push`
+without doing it by a `git push`.
 
 > Your application must have been created with the `git_source` attribute to be
 deployable this way.
-
---- row ---
 
 ### Attributes
 
@@ -198,6 +196,74 @@ Returns 200 OK
     "status":"building",
     "git_ref":"master",
     "previous_git_ref":"eb5454c314e2e9c8f98efa9b4422476b391df185",
+    "duration":0,
+    "pusher": {
+      "username":"user",
+      "email":"user@example.com",
+      "id":"51161e5ef1e42617000001"
+    },
+    "links": {
+      "output": "https://api.scalingo.com/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
+    }
+  }
+}
+```
+
+--- row ---
+
+## Trigger manually a deployment from an archive
+
+--- row ---
+
+`POST https://api.scalingo.com/v1/apps/[:app]/deployments`
+
+With this helper, you'll be able to trigger a deployment from your application
+without doing it by a `git push`. You just need to provide a link to an archive containing the sources. The archive must follow some format:
+
+* tar archive compressed with gzip
+* the tar archive MUST contain a single folder at the root. This folder contains the sources of your application.
+
+> The `git_ref` is optional. You can use this attribute to provide any string identifying your archive.
+
+### Attributes
+
+```json
+{
+  "deployment": {
+    "git_ref": "Reference in git to deploy",
+    "source_url": "Archive with the source"
+  }
+}
+```
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u ":$AUTH_TOKEN" \
+     -X POST https://api.scalingo.com/v1/apps/example-app/deployments -d \
+     '{
+       "deployment": {
+         "git_ref": "v0.0.2",
+         "source_url": "https://github.com/Scalingo/sample-go-martini/archive/master.tar.gz"
+       }
+     }'
+```
+
+Returns 200 OK
+
+```json
+{
+  "deployment": {
+    "id":"5e34a76a-24b7-4d50-be96-942ca986a786",
+    "created_at":"2016-12-16T16:33:58.250+01:00",
+    "app_id":"529ba36e65d972e883203922",
+    "finished_at":null,
+    "status":"building",
+    "git_ref":"v0.0.2",
+    "previous_git_ref":"v0.0.1",
+    "type": "archive",
     "duration":0,
     "pusher": {
       "username":"user",
@@ -297,7 +363,7 @@ You'll receive different types of message from the websocket:
 
 * `ping` which is sent to keep the connection open and avoid timeout.
 * `new` when a new deployment is triggered this event is sent to notify listeners
-* `log` each time a logline is displayed, it is sent through this kind of event
+* `log` each time a log line is displayed, it is sent through this kind of event
 * `status` the deployment goes through multiple states during its lifetime:
 
 ```
