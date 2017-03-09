@@ -186,6 +186,18 @@ method</a>.</p>
 
 <p>Display a precise application</p>
 
+<p>The status field can take different values depending on your application state:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">new</code>: Your app have juste been created</li>
+  <li><code class="highlighter-rouge">running</code>: Normal status of an application</li>
+  <li><code class="highlighter-rouge">stopped</code>: Your app have no container running</li>
+  <li><code class="highlighter-rouge">crashed</code>: Your app have chrashed more than 12 times in a row</li>
+  <li><code class="highlighter-rouge">restarting</code>: You triggered a restart operation</li>
+  <li><code class="highlighter-rouge">scaling</code>: You triggered a scale operation</li>
+  <li><code class="highlighter-rouge">booting</code>: You are deploying a new version of your application</li>
+</ul>
+
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example request</p>
 

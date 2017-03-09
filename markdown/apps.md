@@ -146,6 +146,16 @@ Returns 200 OK
 
 Display a precise application
 
+The status field can take different values depending on your application state:
+
+- `new`: Your app have juste been created
+- `running`: Normal status of an application
+- `stopped`: Your app have no container running
+- `crashed`: Your app have chrashed more than 12 times in a row
+- `restarting`: You triggered a restart operation
+- `scaling`: You triggered a scale operation
+- `booting`: You are deploying a new version of your application
+
 ||| col |||
 
 Example request
