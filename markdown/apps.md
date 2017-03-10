@@ -5,16 +5,19 @@
 **Application attributes**
 
 {:.table}
-| field          | type   | description                                      |
-| -------------- | ------ | ------------------------------------------------ |
-| id             | string | unique ID                                        |
-| name           | string | name of the application, can substitute the ID   |
-| created_at     | date   | creation date of the application                 |
-| updated_at     | date   | last time the application has been updated       |
-| git_url        | string | URL to the GIT remote to access your application |
-| owner          | object | information about the owner of the application   |
-| url            | string | platform allocated URL to access to your app     |
-| links          | object | object of related link like `deployments_stream` |
+| field               | type   | description                                      |
+| ------------------- | ------ | ------------------------------------------------ |
+| id                  | string | unique ID                                        |
+| name                | string | name of the application, can substitute the ID   |
+| created_at          | date   | creation date of the application                 |
+| updated_at          | date   | last time the application has been updated       |
+| git_url             | string | URL to the GIT remote to access your application |
+| owner               | object | information about the owner of the application   |
+| url                 | string | platform allocated URL to access to your app     |
+| links               | object | object of related link like `deployments_stream` |
+| last_deployed_at    | date   | date of the last deployement attempt             |
+| last_deployed_by    | string | user who attempted the last deployment           |
+| last_deployement_id | string | id of the last successfull deployment            |
 
 ||| col |||
 
@@ -27,6 +30,9 @@ Example object:
   "created_at": "2014-09-10T10:17:52.690+02:00",
   "updated_at": "2014-09-10T10:17:52.690+02:00",
   "git_url": "git@scalingo.com:example-app.git",
+  "last_deployed_at": "2017-02-02T10:17:53.690+02:00",
+  "last_deployed_by": "john",
+  "last_deployment_id": "58c2b15af1453a0001e24d23",
   "owner": {
     "username": "john",
     "email": "user@example.com",
@@ -89,7 +95,10 @@ Returns 201 Created
         "git_url": "git@scalingo.com:example-app.git",
         "id": "54100930736f7563d5030000",
         "name": "example-app",
-        "owner": {
+        "last_deployed_at": "2017-02-02T10:17:53.690+02:00",
+        "last_deployed_by": "john",
+        "last_deployment_id": "58c2b15af1453a0001e24d23",
+         "owner": {
             "username": "john",
             "email": "user@example.com",
             "id": "54100245736f7563d5000000"
