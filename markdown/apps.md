@@ -542,6 +542,66 @@ Returns 200 OK
 
 --- row ---
 
+## Create a review application
+
+--- row ---
+
+`POST https://api.scalingo.com/v1/apps/[:parent_app_name]/review_apps`
+
+Create a review application based on the provided parent application.
+
+### Parameters
+
+* `app.name`: Name of the created review application. Should have between 6 and 32 lower case alphanumerical characters
+  and hyphens, it can't have an hyphen at the beginning or at the end, nor two
+  hyphens in a row.
+
+||| col |||
+
+Example
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
+  -X POST https://api.scalingo.com/v1/apps/example-parent-app/review_apps -d \
+  '{
+    "app": {
+      "name": "example-review-app"
+    }
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "app": {
+    "created_at":"2017-03-10T18:20:39.454+01:00",
+    "git_url":"git@scalingo.com:example-review-app.git",
+    "id":"58c2d99563b9fe00019298e2",
+    "name":"example-review-app",
+    "parent_app_name": "example-parent-app",
+    "owner": {
+      "username":"john",
+      "email":"user@example.com",
+      "id":"58bb138d97183e0001f90e1a",
+    },
+    "updated_at":"2017-03-10T18:20:39.458+01:00",
+    "url":"https://example-review-app.scalingo.io",
+    "links": {
+      "deployments_stream":"wss://deployments.scalingo.com/apps/example-review-app"
+    },
+    "status":"new",
+    "last_deployed_at":null,
+    "last_deployed_by":null,
+    "git_source":null,
+    "flags":{},
+    "limits":{}
+  }
+}
+```
+
+--- row ---
+
 ## Get metrics data of an application
 
 --- row ---
