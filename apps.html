@@ -57,6 +57,21 @@ title: Applications
       <td>object</td>
       <td>object of related link like <code class="highlighter-rouge">deployments_stream</code></td>
     </tr>
+    <tr>
+      <td>last_deployed_at</td>
+      <td>date</td>
+      <td>date of the last deployement attempt</td>
+    </tr>
+    <tr>
+      <td>last_deployed_by</td>
+      <td>string</td>
+      <td>user who attempted the last deployment</td>
+    </tr>
+    <tr>
+      <td>last_deployement_id</td>
+      <td>string</td>
+      <td>id of the last successfull deployment</td>
+    </tr>
   </tbody>
 </table>
 
@@ -69,6 +84,9 @@ title: Applications
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-10T10:17:52.690+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_deployed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-02T10:17:53.690+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_deployed_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_deployment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58c2b15af1453a0001e24d23"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
@@ -132,7 +150,10 @@ method</a>.</p>
         </span><span class="s2">"git_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git@scalingo.com:example-app.git"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100930736f7563d5030000"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-app"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_deployed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-02T10:17:53.690+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_deployed_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_deployment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58c2b15af1453a0001e24d23"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54100245736f7563d5000000"</span><span class="w">
