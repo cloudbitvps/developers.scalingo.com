@@ -611,6 +611,48 @@ Returns 201 Created
 
 --- row ---
 
+## List child apps of an applicatoin
+
+--- row ---
+
+This endpoint let you list the different child apps of an application
+
+> Feature: pagination
+
+||| col |||
+
+Example
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
+  -X GET https://api.scalingo.com/v1/apps/example-parent-app/child_apps
+```
+
+Returns 201 Created
+
+```json
+{
+  "child_apps": [
+    {
+      "created_at":"2017-03-10T18:20:39.454+01:00",
+      "id":"58c2d99563b9fe00019298e2",
+      "name":"example-child-app-1",
+      "parent_app_name": "example-parent-app",
+      ...
+    }, {
+      "created_at":"2017-03-10T18:20:39.454+01:00",
+      "id":"58c2d99563b9fe00019298e3",
+      "name":"example-child-app-2",
+      "parent_app_name": "example-parent-app",
+      ...
+    }
+  ]
+}
+```
+
+
+--- row ---
+
 ## Get metrics data of an application
 
 --- row ---

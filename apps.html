@@ -619,17 +619,17 @@ environment your application.</p>
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<h2 id="create-a-review-application">Create a review application</h2>
+<h2 id="create-a-child-application">Create a child application</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:parent_app_name]/review_apps</code></p>
+<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:parent_app_name]/child_apps</code></p>
 
-<p>Create a review application based on the provided parent application.</p>
+<p>Create a child application based on the provided parent application.</p>
 
 <h3 id="parameters">Parameters</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">app.name</code>: Name of the created review application. Should have between 6 and 32 lower case alphanumerical characters
+  <li><code class="highlighter-rouge">app.name</code>: Name of the created child application. Should have between 6 and 32 lower case alphanumerical characters
 and hyphens, it can’t have an hyphen at the beginning or at the end, nor two
 hyphens in a row.</li>
 </ul>
@@ -638,10 +638,10 @@ hyphens in a row.</li>
 <p>Example</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
-  -X POST https://api.scalingo.com/v1/apps/example-parent-app/review_apps -d <span class="se">\</span>
+  -X POST https://api.scalingo.com/v1/apps/example-parent-app/child_apps -d <span class="se">\</span>
   <span class="s1">'{
     "app": {
-      "name": "example-review-app"
+      "name": "example-child-app"
     }
   }'</span>
 </code></pre>
@@ -652,9 +652,9 @@ hyphens in a row.</li>
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-03-10T18:20:39.454+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"git_url"</span><span class="p">:</span><span class="s2">"git@scalingo.com:example-review-app.git"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"git_url"</span><span class="p">:</span><span class="s2">"git@scalingo.com:example-child-app.git"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58c2d99563b9fe00019298e2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"example-review-app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"example-child-app"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"parent_app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-parent-app"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"john"</span><span class="p">,</span><span class="w">
@@ -662,9 +662,9 @@ hyphens in a row.</li>
       </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58bb138d97183e0001f90e1a"</span><span class="p">,</span><span class="w">
     </span><span class="err">}</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-03-10T18:20:39.458+01:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://example-review-app.scalingo.io"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://example-child-app.scalingo.io"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"deployments_stream"</span><span class="p">:</span><span class="s2">"wss://deployments.scalingo.com/apps/example-review-app"</span><span class="w">
+      </span><span class="s2">"deployments_stream"</span><span class="p">:</span><span class="s2">"wss://deployments.scalingo.com/apps/example-child-app"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"new"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_deployed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -673,6 +673,46 @@ hyphens in a row.</li>
     </span><span class="s2">"flags"</span><span class="p">:{},</span><span class="w">
     </span><span class="s2">"limits"</span><span class="p">:{}</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="list-child-apps-of-an-applicatoin">List child apps of an applicatoin</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>This endpoint let you list the different child apps of an application</p>
+
+<blockquote>
+  <p>Feature: pagination</p>
+</blockquote>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X GET https://api.scalingo.com/v1/apps/example-parent-app/child_apps
+</code></pre>
+</div>
+
+<p>Returns 201 Created</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"child_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-03-10T18:20:39.454+01:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58c2d99563b9fe00019298e2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"example-child-app-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-parent-app"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-03-10T18:20:39.454+01:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58c2d99563b9fe00019298e3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"example-child-app-2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-parent-app"</span><span class="p">,</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
