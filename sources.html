@@ -1,0 +1,84 @@
+---
+layout: default
+title: Sources
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="sources">Sources</h1>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p>Sources are used to provide temporary upload and download locations for tarballs. A deployment
+can be created with the download location as a source for the code of the application.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><strong>Source attributes</strong></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>field</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>upload_url</td>
+      <td>string</td>
+      <td>pre-authenticated URL to upload a source archive</td>
+    </tr>
+    <tr>
+      <td>download_url</td>
+      <td>string</td>
+      <td>pre-authenticated URL to download a source archive</td>
+    </tr>
+  </tbody>
+</table>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example object:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"upload_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"</span><span class="w">
+  </span><span class="s2">"download_url"</span><span class="err">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="create-a-source">Create a source</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/sources</code></p>
+
+<p>The generated URLs have a short lifetime and are designed to be used quickly (10 minutes). All the uploaded files are automatically
+deleted from our storage backend after the links avec expired.</p>
+
+<p>The <code class="highlighter-rouge">upload_url</code> is designed to be used in a <code class="highlighter-rouge">PUT</code> HTTP Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -L -X PUT --upload-file ./archive.tar.gz 'https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d'
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">download_url</code> is designed to be used in a <code class="highlighter-rouge">GET</code> HTTP Request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -L -X GET -o archive.tar.gz 'https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc'
+</code></pre>
+</div>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X POST https://api.scalingo.com/v1/sources -d <span class="s1">''</span>
+</code></pre>
+</div>
+
+<p>Returns 201 Created</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"upload_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"</span><span class="w">
+  </span><span class="s2">"download_url"</span><span class="err">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div>
