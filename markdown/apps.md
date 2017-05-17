@@ -476,7 +476,7 @@ Example request:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/logs'
+  -X GET 'https://api.scalingo.com/v1/apps/example-app/logs'
 ```
 
 Returns 200 OK
@@ -485,6 +485,49 @@ Returns 200 OK
 {
   "app": { … },
   "logs_url": "https://logs.scalingo.com/apps/example-app/logs?token=0123456789"
+}
+```
+
+--- row ---
+
+## Access to the application logs archives
+
+--- row ---
+
+`GET https://api.scalingo.com/v1/apps/[:app]/logs_archives(?cursor=123456)`
+
+The request will generate a list of URLs you can use to download your logs archives.
+URLs are valid for a duration of 60 minutes.
+
+They are paginated so a response contain a boolean indicating if there is more \
+archives available and a string cursor you need to provide to get next list.
+
+One reponse item contain the filesize and the aproximate time period provided.
+
+||| col |||
+
+Example request:
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
+ -X GET 'https://api.scalingo.com/v1/apps/example-app/logs_archives'
+```
+
+Returns 200 OK
+
+```json
+{
+  "next_cursor": "234567",
+  "has_more": true,
+  "archives": [
+    {
+      "url": "https://scalingo.io/myfile",
+      "size": 98765,
+      "from": "Fri Mar 24 14:00:00 +0000 UTC 2017",
+      "to": "Sun Mar 26 14:00:00 +0000 UTC 2017"
+    },
+    { … }
+  ]
 }
 ```
 
