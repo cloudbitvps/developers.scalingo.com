@@ -499,7 +499,7 @@ Returns 200 OK
 The request will generate a list of URLs you can use to download your logs archives.
 URLs are valid for a duration of 60 minutes.
 
-They are paginated so a response contain a boolean indicating if there is more \
+They are paginated so a response contain a boolean indicating if there is more
 archives available and a string cursor you need to provide to get next list.
 
 One reponse item contain the filesize and the aproximate time period provided.
@@ -510,7 +510,7 @@ Example request:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
- -X GET 'https://api.scalingo.com/v1/apps/example-app/logs_archives'
+  -X GET 'https://api.scalingo.com/v1/apps/example-app/logs_archives'
 ```
 
 Returns 200 OK
