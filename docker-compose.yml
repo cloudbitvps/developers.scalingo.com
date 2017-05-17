@@ -1,0 +1,12 @@
+version: '2'
+services:
+  api-doc:
+    build: .
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - BUNDLE_PATH=./gems
+    working_dir: /usr/src/app
+    command: bundle exec jekyll serve --host=0.0.0.0
