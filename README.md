@@ -7,12 +7,12 @@ Write files in markdown/*
 Execute converter
 
 ```
-bundle exec ruby converter.rb
+docker-compose run api-doc bundle exec ruby converter.rb
 ```
 
 Launch server
 ```
-bundle exec jekyll server
+docker-compose up
 ```
 
 # Custom syntax

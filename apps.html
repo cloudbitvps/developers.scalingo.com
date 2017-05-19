@@ -545,7 +545,7 @@ collaborators</li>
 <p>Example request:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
-  -X POST <span class="s1">'https://api.scalingo.com/v1/apps/example-app/logs'</span>
+  -X GET <span class="s1">'https://api.scalingo.com/v1/apps/example-app/logs'</span>
 </code></pre>
 </div>
 
@@ -554,6 +554,46 @@ collaborators</li>
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="err">}</span><span class="p">,</span><span class="w">
   </span><span class="s2">"logs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://logs.scalingo.com/apps/example-app/logs?token=0123456789"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="access-to-the-application-logs-archives">Access to the application logs archives</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/apps/[:app]/logs_archives(?cursor=123456)</code></p>
+
+<p>The request will generate a list of URLs you can use to download your logs archives.
+URLs are valid for a duration of 60 minutes.</p>
+
+<p>They are paginated so a response contain a boolean indicating if there is more
+archives available and a string cursor you need to provide to get next list.</p>
+
+<p>One reponse item contain the filesize and the aproximate time period provided.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example request:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -u :<span class="nv">$AUTH_TOKEN</span> <span class="se">\</span>
+  -X GET <span class="s1">'https://api.scalingo.com/v1/apps/example-app/logs_archives'</span>
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"next_cursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234567"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"archives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scalingo.io/myfile"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">98765</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri Mar 24 14:00:00 +0000 UTC 2017"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sun Mar 26 14:00:00 +0000 UTC 2017"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="err">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>

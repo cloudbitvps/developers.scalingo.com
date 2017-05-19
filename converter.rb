@@ -2,6 +2,8 @@ require 'kramdown'
 require 'nokogiri'
 require 'pry'
 
+Encoding.default_external = Encoding::UTF_8
+
 def content_tag name, content, options = {}
   attributes = options.inject(""){|memo, (k,v)|
     memo << "#{k}='#{v}'"
