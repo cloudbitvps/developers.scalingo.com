@@ -464,11 +464,13 @@ This request returns the events 40 to 60.
 		{ ... }
 	],
 	"meta": {
-		"current_page": 4,
-		"prev_page": 3,
-		"next_page": 5,
-		"total_pages": 12,
-		"total_count": 240
+		"pagination": {
+			"current_page": 4,
+			"prev_page": 3,
+			"next_page": 5,
+			"total_pages": 12,
+			"total_count": 240
+		}
 	}
 }
 ```
