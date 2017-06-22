@@ -1033,7 +1033,7 @@ Response
 
 --- row ---
 
-With this list of events, you can reconstruct the timeline your user. You'll
+With this list of events, you can reconstruct the timeline of your user. You'll
 get the events which have been done by the user on themself, and on their apps.
 
 `GET https://api.scalingo.com/v1/events`
