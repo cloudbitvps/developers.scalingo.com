@@ -212,18 +212,13 @@ application are deployed.</p>
 </div>
 
 </div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
-<h2 id="trigger-manually-a-deployment-from-a-github-repository">Trigger manually a deployment from a GitHub repository</h2>
+<h2 id="trigger-manually-a-deployment-from-a-github-repository-or-any-custom-code-archive">Trigger manually a deployment from a GitHub repository or any custom code archive.</h2>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:app]/deployments</code></p>
 
 <p>With this helper, you’ll be able to trigger a deployment from your application
 without doing it by a <code class="highlighter-rouge">git push</code>.</p>
-
-<blockquote>
-  <p>Your application must have been created with the <code class="highlighter-rouge">git_source</code> attribute to be
-deployable this way.</p>
-</blockquote>
 
 <h3 id="attributes">Attributes</h3>
 
@@ -235,6 +230,9 @@ deployable this way.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
+<p>The <a href="/sources">Sources</a> endpoints have been creating in order to let you upload the code temporarily
+at some place and get a <code class="highlighter-rouge">source_url</code> for your code either it’s on GitHub or not.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example request</p>

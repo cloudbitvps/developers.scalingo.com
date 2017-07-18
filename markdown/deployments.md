@@ -146,7 +146,7 @@ Returns 200 OK
 
 --- row ---
 
-## Trigger manually a deployment from a GitHub repository
+## Trigger manually a deployment from a GitHub repository or any custom code archive.
 
 --- row ---
 
@@ -154,9 +154,6 @@ Returns 200 OK
 
 With this helper, you'll be able to trigger a deployment from your application
 without doing it by a `git push`.
-
-> Your application must have been created with the `git_source` attribute to be
-deployable this way.
 
 ### Attributes
 
@@ -168,6 +165,9 @@ deployable this way.
   }
 }
 ```
+
+The [Sources](/sources) endpoints have been creating in order to let you upload the code temporarily
+at some place and get a `source_url` for your code either it's on GitHub or not.
 
 ||| col |||
 
