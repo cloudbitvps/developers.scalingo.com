@@ -225,6 +225,9 @@ without doing it by a `git push`. You just need to provide a link to an archive 
 
 > The `git_ref` is optional. You can use this attribute to provide any string identifying your archive.
 
+The [Sources](/sources) endpoints have been creating in order to let you upload the code
+temporarily at some place and get a `source_url` for your code.
+
 ### Attributes
 
 ```json
