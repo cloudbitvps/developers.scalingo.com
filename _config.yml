@@ -17,4 +17,9 @@ kramdown:
 
 exclude:
   - gems
+  - Gemfile
+  - Gemfile.lock
   - config.ru
+  - vendor
+  - Procfile
+  - config/puma.rb
