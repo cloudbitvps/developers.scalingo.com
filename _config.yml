@@ -9,9 +9,12 @@ github_username:  scalingo
 
 # Build settings
 markdown: kramdown
+permalink: none
 
 kramdown:
   input: GFM
   hard_wrap: false
 
-exclude: [gems]
+exclude:
+  - gems
+  - config.ru
