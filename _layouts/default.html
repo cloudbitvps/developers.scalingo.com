@@ -7,6 +7,7 @@
       <div class="row">
         <div class="col-sm-2 sidebar-nav">
           <a href="/"><img src="https://scalingo.com/logo.svg" class="h1 logo img-responsive"></a>
+          {% include search.html %}
           <strong>API V1</strong>
           <ul class="list-unstyled">
             {% include index_toc.html %}
@@ -40,5 +41,6 @@
       ga('linker:autoLink', ['scalingo.com', 'doc.scalingo.com', 'blog.scalingo.com', 'changelog.scalingo.com'] );
       ga('send', 'pageview');
     </script>
+    <script data-main="{{ site.baseurl }}/assets/javascripts/application" src="{{ site.baseurl }}/assets/javascripts/require.js"></script>
   </body>
 </html>
