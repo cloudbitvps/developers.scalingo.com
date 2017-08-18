@@ -21,7 +21,7 @@ Example object:
 
 ```json
 {
-  "upload_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"
+  "upload_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d",
   "download_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
 }
 ```
@@ -35,7 +35,7 @@ Example object:
 `POST https://api.scalingo.com/v1/sources`
 
 The generated URLs have a short lifetime and are designed to be used quickly (10 minutes). All the uploaded files are automatically
-deleted from our storage backend after the links avec expired.
+deleted from our storage backend after the links have expired.
 
 The `upload_url` is designed to be used in a `PUT` HTTP Request:
 
