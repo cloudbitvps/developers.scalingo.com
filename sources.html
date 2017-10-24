@@ -38,8 +38,8 @@ can be created with the download location as a source for the code of the applic
 <p>Example object:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"upload_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"</span><span class="w">
-  </span><span class="s2">"download_url"</span><span class="err">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"</span><span class="w">
+  </span><span class="s2">"upload_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -51,7 +51,7 @@ can be created with the download location as a source for the code of the applic
 <p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/sources</code></p>
 
 <p>The generated URLs have a short lifetime and are designed to be used quickly (10 minutes). All the uploaded files are automatically
-deleted from our storage backend after the links avec expired.</p>
+deleted from our storage backend after the links have expired.</p>
 
 <p>The <code class="highlighter-rouge">upload_url</code> is designed to be used in a <code class="highlighter-rouge">PUT</code> HTTP Request:</p>
 
