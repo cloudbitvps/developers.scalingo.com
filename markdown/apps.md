@@ -157,10 +157,10 @@ Display a precise application
 
 The status field can take different values depending on your application state:
 
-- `new`: Your app have just been created
-- `running`: Your app have at least container running
-- `stopped`: Your app have no container running
-- `crashed`: Your app has chrashed more than 12 times in a row
+- `new`: Your app has just been created
+- `running`: Your app has at least one container running
+- `stopped`: Your app has no containers running
+- `crashed`: Your app has crashed more than 12 times in a row
 - `restarting`: You triggered a restart operation
 - `scaling`: You triggered a scale operation
 - `booting`: You are deploying a new version of your application
