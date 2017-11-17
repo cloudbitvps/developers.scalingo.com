@@ -17,9 +17,9 @@ or `scalingo.json`. The latter will always take priority over the first one.
 
 **The manifest attributes**
 
-A complete description of the manifest attributes is [here](/scalingo-json-schema). 
-To setup the one click deployment on your project, you simply need to link 
-to `https://my.scalingo.com/deploy`. Then we get the source code from these 
+A complete description of the manifest attributes is [here](/scalingo-json-schema).
+To setup the one click deployment on your project, you simply need to link
+to `https://my.scalingo.com/deploy`. Then we get the source code from these
 places:
 
 - Using the referer HTTP header if the link is on a github repository page
@@ -70,4 +70,4 @@ To setup a post-deployment hook, you just have to add a `postdeploy` entry in yo
 postdeploy: command you want to run
 ```
 
-You can get more information on this feature on the [dedicated page](http://doc.scalingo.com/app/postdeploy-hook.html#workflow). 
+You can get more information on this feature on the [dedicated page](http://doc.scalingo.com/app/postdeploy-hook.html#workflow).

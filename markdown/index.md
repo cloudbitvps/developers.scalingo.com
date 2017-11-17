@@ -28,8 +28,6 @@ When any change is applied to the API, it will be displayed in ths [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](http://changelog.scalingo.com)
 
-> Last update: Friday 16th Dec 2016
-
 ||| col |||
 
 Base URL:
@@ -460,18 +458,18 @@ This request returns the events 40 to 60.
 
 ```json
 {
-	"events": [
-		{ ... }
-	],
-	"meta": {
-		"pagination": {
-			"current_page": 4,
-			"prev_page": 3,
-			"next_page": 5,
-			"total_pages": 12,
-			"total_count": 240
-		}
-	}
+  "events": [
+    { ... }
+  ],
+  "meta": {
+    "pagination": {
+      "current_page": 4,
+      "prev_page": 3,
+      "next_page": 5,
+      "total_pages": 12,
+      "total_count": 240
+    }
+  }
 }
 ```
 
@@ -481,34 +479,81 @@ This request returns the events 40 to 60.
 
 --- row ---
 
+## Friday 17th Nov 2017:
+
+* Add `GET /features/container_sizes` endpoint description
+* Documentation of the `formation` attribute of the `scalingo.json` [manifest](/scalingo-json-schema)
+
+--- row ---
+
+## Tuesday 24th Oct 2017:
+
+* Add `options` attribute to the [addon plan
+  upgrade](/addon-provider-api#plan-modification) payload to addon provider API.
+
+--- row ---
+
+## Tuesday 18th Jul 2017:
+
+* Add `POST /deployments` endpoint to trigger [deployments](/deployments.html#trigger-manually-a-deployment-from-an-archive) from custom code source archive.
+
+--- row ---
+
+## Wednesday 17th May 2017:
+
+* Documentation of the `GET /apps/[:app]/logs_archives` endpoint to [list logs archives](/apps.html#access-to-the-application-logs-archives) from an application.
+
+--- row ---
+
+## Wednesday 29th Mar 2017:
+
+* Add [Sources](/sources.html) resource to upload temporarily source archives
+
+--- row ---
+
+## Thursday 16th Mar 2017:
+
+* Endpoint `GET /apps/[:app]/child_apps` to [list child apps](/apps.html#list-child-apps-of-an-application) of a parent app
+* Endpoint `POST /apps/[:app]/child_apps` to [create a child app](/apps.html#create-a-child-application)
+
+## Tuesday 14th Mar 2017:
+
+* Add attribute `last_deployment_id` to the [application](/apps.html).
+
+## Thursday 9th Mar 2017:
+
+* Update list of possible `status` for an [application](/apps.html#get-a-precise-application)
+
+--- row ---
+
 ## Friday 16th Dec 2016:
 
-Add Header `X-Dry-Run` for apps creation endpoint `POST /apps`
+* Add Header `X-Dry-Run` for apps creation endpoint `POST /apps`
 
 ## Friday 29th July 2016:
 
-Documentation of the [metrics](/apps.html#get-metrics-data-of-an-application)
+* Documentation of the [metrics](/apps.html#get-metrics-data-of-an-application)
 
 ## Friday 24th June 2016:
 
-Documentation of the [notifications](/notifications.html)
+* Documentation of the [notifications](/notifications.html)
 
 ## Tuesday 7th June 2016:
 
-Documentation to get real time logs of deployments: [documentation](/deployments.html)
+* Documentation to get real time logs of deployments: [documentation](/deployments.html)
 
 ## Tuesday 15th December 2015:
 
-Documentation of the [One-click deployment manifest](/one-click)
+* Documentation of the [One-click deployment manifest](/one-click)
 
 ## Thursday 3rd December 2015:
 
-Documentation of the [Operation resource](/operations.html) with the endpoint:
+* Documentation of the [Operation resource](/operations.html) with the endpoint:
 `GET /apps/[:app]/operations/[:operation_id]`
 
 ## Friday 20th November 2015:
 
-Add `GET /apps/[:app]/stats` endpoint to get application metrics.
+* Add `GET /apps/[:app]/stats` endpoint to get application metrics.
 
 ||| col |||
 

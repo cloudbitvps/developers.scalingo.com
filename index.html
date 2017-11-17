@@ -31,10 +31,6 @@ keep the right to release a <strong>v2</strong> and so forth.</p>
 section</a> of this documentation and on our <a href="http://changelog.scalingo.com">changelog
 website</a></p>
 
-<blockquote>
-  <p>Last update: Friday 16th Dec 2016</p>
-</blockquote>
-
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Base URL:</p>
 
@@ -430,18 +426,18 @@ or next page.</p>
 <p>This request returns the events 40 to 60.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-		</span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">}</span><span class="w">
-	</span><span class="p">],</span><span class="w">
-	</span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		</span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-			</span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-			</span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-			</span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-			</span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-			</span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w">
-		</span><span class="p">}</span><span class="w">
-	</span><span class="p">}</span><span class="w">
+  </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -450,34 +446,105 @@ or next page.</p>
 <h1 id="changelog">Changelog</h1>
 
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="friday-17th-nov-2017">Friday 17th Nov 2017:</h2>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">GET /features/container_sizes</code> endpoint description</li>
+  <li>Documentation of the <code class="highlighter-rouge">formation</code> attribute of the <code class="highlighter-rouge">scalingo.json</code> <a href="/scalingo-json-schema">manifest</a></li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="tuesday-24th-oct-2017">Tuesday 24th Oct 2017:</h2>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">options</code> attribute to the <a href="/addon-provider-api#plan-modification">addon plan
+upgrade</a> payload to addon provider API.</li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="tuesday-18th-jul-2017">Tuesday 18th Jul 2017:</h2>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">POST /deployments</code> endpoint to trigger <a href="/deployments.html#trigger-manually-a-deployment-from-an-archive">deployments</a> from custom code source archive.</li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="wednesday-17th-may-2017">Wednesday 17th May 2017:</h2>
+
+<ul>
+  <li>Documentation of the <code class="highlighter-rouge">GET /apps/[:app]/logs_archives</code> endpoint to <a href="/apps.html#access-to-the-application-logs-archives">list logs archives</a> from an application.</li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="wednesday-29th-mar-2017">Wednesday 29th Mar 2017:</h2>
+
+<ul>
+  <li>Add <a href="/sources.html">Sources</a> resource to upload temporarily source archives</li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="thursday-16th-mar-2017">Thursday 16th Mar 2017:</h2>
+
+<ul>
+  <li>Endpoint <code class="highlighter-rouge">GET /apps/[:app]/child_apps</code> to <a href="/apps.html#list-child-apps-of-an-application">list child apps</a> of a parent app</li>
+  <li>Endpoint <code class="highlighter-rouge">POST /apps/[:app]/child_apps</code> to <a href="/apps.html#create-a-child-application">create a child app</a></li>
+</ul>
+
+<h2 id="tuesday-14th-mar-2017">Tuesday 14th Mar 2017:</h2>
+
+<ul>
+  <li>Add attribute <code class="highlighter-rouge">last_deployment_id</code> to the <a href="/apps.html">application</a>.</li>
+</ul>
+
+<h2 id="thursday-9th-mar-2017">Thursday 9th Mar 2017:</h2>
+
+<ul>
+  <li>Update list of possible <code class="highlighter-rouge">status</code> for an <a href="/apps.html#get-a-precise-application">application</a></li>
+</ul>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <h2 id="friday-16th-dec-2016">Friday 16th Dec 2016:</h2>
 
-<p>Add Header <code class="highlighter-rouge">X-Dry-Run</code> for apps creation endpoint <code class="highlighter-rouge">POST /apps</code></p>
+<ul>
+  <li>Add Header <code class="highlighter-rouge">X-Dry-Run</code> for apps creation endpoint <code class="highlighter-rouge">POST /apps</code></li>
+</ul>
 
 <h2 id="friday-29th-july-2016">Friday 29th July 2016:</h2>
 
-<p>Documentation of the <a href="/apps.html#get-metrics-data-of-an-application">metrics</a></p>
+<ul>
+  <li>Documentation of the <a href="/apps.html#get-metrics-data-of-an-application">metrics</a></li>
+</ul>
 
 <h2 id="friday-24th-june-2016">Friday 24th June 2016:</h2>
 
-<p>Documentation of the <a href="/notifications.html">notifications</a></p>
+<ul>
+  <li>Documentation of the <a href="/notifications.html">notifications</a></li>
+</ul>
 
 <h2 id="tuesday-7th-june-2016">Tuesday 7th June 2016:</h2>
 
-<p>Documentation to get real time logs of deployments: <a href="/deployments.html">documentation</a></p>
+<ul>
+  <li>Documentation to get real time logs of deployments: <a href="/deployments.html">documentation</a></li>
+</ul>
 
 <h2 id="tuesday-15th-december-2015">Tuesday 15th December 2015:</h2>
 
-<p>Documentation of the <a href="/one-click">One-click deployment manifest</a></p>
+<ul>
+  <li>Documentation of the <a href="/one-click">One-click deployment manifest</a></li>
+</ul>
 
 <h2 id="thursday-3rd-december-2015">Thursday 3rd December 2015:</h2>
 
-<p>Documentation of the <a href="/operations.html">Operation resource</a> with the endpoint:
-<code class="highlighter-rouge">GET /apps/[:app]/operations/[:operation_id]</code></p>
+<ul>
+  <li>Documentation of the <a href="/operations.html">Operation resource</a> with the endpoint:
+<code class="highlighter-rouge">GET /apps/[:app]/operations/[:operation_id]</code></li>
+</ul>
 
 <h2 id="friday-20th-november-2015">Friday 20th November 2015:</h2>
 
-<p>Add <code class="highlighter-rouge">GET /apps/[:app]/stats</code> endpoint to get application metrics.</p>
+<ul>
+  <li>Add <code class="highlighter-rouge">GET /apps/[:app]/stats</code> endpoint to get application metrics.</li>
+</ul>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>```json

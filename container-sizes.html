@@ -1,0 +1,159 @@
+---
+layout: default
+title: Container Sizes
+---
+
+<div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'><h1 id="container-sizes">Container Sizes</h1>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><strong>Container Size attributes</strong></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>field</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>Unique Universal Identifier</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td>Name of the size, used as parameter in operations</td>
+    </tr>
+    <tr>
+      <td>human_name</td>
+      <td>string</td>
+      <td>Display name of the type</td>
+    </tr>
+    <tr>
+      <td>ordinal</td>
+      <td>integer</td>
+      <td>Sorting index to display a list of sizes</td>
+    </tr>
+    <tr>
+      <td>hourly_price</td>
+      <td>integer</td>
+      <td>Price per hour of this container size in cents</td>
+    </tr>
+    <tr>
+      <td>thirtydays_price</td>
+      <td>integer</td>
+      <td>Price for 30 days in cents</td>
+    </tr>
+    <tr>
+      <td>memory</td>
+      <td>integer</td>
+      <td>RAM allocated to the containers in bytes</td>
+    </tr>
+    <tr>
+      <td>human_cpu</td>
+      <td>string</td>
+      <td>Human representation of the CPU priority</td>
+    </tr>
+  </tbody>
+</table>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example object:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"standard CPU priority"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2880</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"c623c087-69c3-4104-8a40-6b5cd3d41cae"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="optional-authentication">Optional Authentication</h2>
+
+<p>This endpoint can be reached unauthenticated, but if custom sizes have been enabled
+to an account, the response won’t include them.</p>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<h2 id="list-the-container-sizes-available">List the container sizes available</h2>
+
+</div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
+<p><code class="highlighter-rouge">GET https://api.scalingo.com/v1/features/container_sizes</code></p>
+
+<p>List all the container sizes available to your account.</p>
+
+</div><div class='col-xs-12 col-sm-6 sidebar-code'>
+<p>Example Request</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X GET -u :<span class="nv">$AUTH_TOKEN</span> https://api.scalingo.com/v1/features/container_sizes
+</code></pre>
+</div>
+
+<p>Returns 200 OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"container_sizes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"low CPU priority"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">268435456</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"01710ca1-5d40-45be-a038-7d029e05cb23"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"standard CPU priority"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">536870912</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"32629c23-4f69-42b8-b603-79849d1c2471"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1440</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"standard CPU priority"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2880</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"c623c087-69c3-4104-8a40-6b5cd3d41cae"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5760</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"f6a6a2cb-aeba-433e-958d-3d3a74e6b065"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2147483648</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"XL"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"high CPU priority"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"XL"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"hourly_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_cpu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"high CPU priority"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"human_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2XL"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"memory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4294967296</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2XL"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"thirtydays_price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11520</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"30b895f6-4320-4299-ac10-61e42180f9f3"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ordinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</div></div>
