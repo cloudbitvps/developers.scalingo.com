@@ -1,6 +1,6 @@
 # scalingo.json Schema
 
-`scalingo.json` is a deployment manifest to let people deploy their software 
+`scalingo.json` is a deployment manifest to let people deploy their software
 super easily. This document describe its schema in detail.
 
 --- row ---
@@ -23,11 +23,12 @@ or `scalingo.json`. The latter will always take priority over the first one.
 | _repository_   | string | Location of the GIT repository of the project  |
 | _ref_          | string | Branch name or commit ID of the code to use    |
 | _description_  | string | Description in one or two sentences of the app |
-| _logo_         | string | URL to the logo of the project		             |
+| _logo_         | string | URL to the logo of the project                 |
 | _website_      | string | Official website of the application if any     |
 | _env_          | object | Environment of the application, see below      |
 | _addons_       | array  | List of all the addons required to run the app |
 | _scripts_      | object | Optional postdeploy script, see below          |
+| _formation_    | object | Formation of containers when an app is created |
 
 Optional arguments are in italics.
 
@@ -82,6 +83,54 @@ File scalingo.json of [sample-go-martini](https://github.com/Scalingo/sample-go-
   "addons": ["scalingo-redis"],
   "scripts": {
     "postdeploy": "echo hello"
+  },
+  "formation": {
+    "web": {
+      "amount": 1,
+      "size": "S"
+    },
+    "other": {
+      "amount": 1,
+      "size": "S"
+    }
+  }
+}
+```
+
+--- row ---
+
+**Formation**
+
+The formation is the definition of the container which will be started once the
+application is deployed. (Either coming from a one-click deployment button, or
+a review app from the github integration)
+
+It should be a map of container type definitions, the key should be the type name
+and the value should have the following structure:
+
+{:.table}
+| field    | type    | description                                                            |
+| -------- | ------- | ---------------------------------------------------------------------- |
+| amount   | integer | Number of containers to start once the application is deployed         |
+| size     | string  | Container size `name` ([get the list of sizes](/container-sizes.html)) |
+
+Get the default list of sizes on the <a target="_blank" href="https://scalingo.com/pricing">pricing page</a>.
+
+||| col |||
+
+Example:
+
+```json
+{
+  "formation": {
+    "web": {
+      "amount": 2,
+      "size": "L"
+    },
+    "worker": {
+      "amount": 1,
+      "size": "XL"
+    }
   }
 }
 ```
@@ -93,14 +142,14 @@ File scalingo.json of [sample-go-martini](https://github.com/Scalingo/sample-go-
 This `scripts` key is now deprecated in the scalingo.json in favor of Procfile. You can find information
 on Procfile on the [dedicated page](http://doc.scalingo.com/internals/procfile.html).
 
-The only available key for the `scripts` object is `postdeploy`. 
+The only available key for the `scripts` object is `postdeploy`.
 
 {:.table}
 | field          | type   | description                                             |
 | -------------- | ------ | ------------------------------------------------------- |
 | postdeploy     | string | Command and argument of the script you want to execute. |
 
-You can get more information on this feature on the [dedicated page](http://doc.scalingo.com/app/postdeploy-hook.html#workflow). 
+You can get more information on this feature on the [dedicated page](http://doc.scalingo.com/app/postdeploy-hook.html#workflow).
 
 ## Example
 
@@ -113,7 +162,7 @@ With the `scalingo.json` in the above-mentioned project, the example will:
 * Location of the logo.
 * URL of the GIT repository.
 * Official website of the project.
-* List of the environment variables with their description and optional generator `VAR_TEST_1` and `VAR_SECRET_1`. 
+* List of the environment variables with their description and optional generator `VAR_TEST_1` and `VAR_SECRET_1`.
 These environment variables will be available for your application.
 * Ask for the provisioning of a Redis addon.
 * Execute the provided script after the container booted.

@@ -654,7 +654,7 @@ Returns 201 Created
 
 --- row ---
 
-## List child apps of an applicatoin
+## List child apps of an application
 
 --- row ---
 
