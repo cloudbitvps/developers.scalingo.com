@@ -606,25 +606,33 @@ archives available and a string cursor you need to provide to get next list.</p>
 </div><div class='hidden-xs col-xs-12 col-sm-6 sidebar-code'></div></div><div class='row'><div class='col-xs-12 col-sm-6 sidebar-text'>
 <p><code class="highlighter-rouge">POST https://api.scalingo.com/v1/apps/[:app]/run</code></p>
 
-<p>To run an interactive task, you have to start a one-off container. As its name
+<p>To run a n interactive task, you have to start a one-off container. As its name
 mean it’s a container you will start for a given task and which will be
 destroyed after it. It can be any command which will be executed in the
 environment your application.</p>
 
-<blockquote>
-  We do not handle detached commands yet, each one-off container has to be
-  attached to be executed, to be canceled after 5 minutes if it hasn't.
-</blockquote>
-
-<p>See <a href="/one-off.html">how to handle the returned <code class="highlighter-rouge">attach_url</code></a></p>
-
 <h3 id="parameters">Parameters</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">command</code>: Command line which has to be run (example: “bash”)</li>
-  <li><code class="highlighter-rouge">env</code>: Environment variables to inject into the container (additionaly to those of your apps)</li>
-  <li><code class="highlighter-rouge">size</code>: Size of the container (e.g. S, M, etc). The size by default is M.</li>
+  <li><code class="highlighter-rouge">command</code> (<em>string</em> <strong>required</strong>): Command line which has to be run (example: “bash”)</li>
+  <li><code class="highlighter-rouge">env</code> (<em>object</em>): Environment variables to inject into the container (additionaly to those of your apps)</li>
+  <li><code class="highlighter-rouge">size</code> (<em>string</em>, default <code class="highlighter-rouge">"M"</code>): Size of the container (e.g. S, M, etc)</li>
+  <li><code class="highlighter-rouge">detached</code> (<em>boolean</em>, default <code class="highlighter-rouge">false</code>): Foreground task by default, set to <code class="highlighter-rouge">true</code> if the container has to be run in background.</li>
 </ul>
+
+<h3 id="background-vs-foreground-one-off">Background vs Foreground one-off</h3>
+
+<p>By default one-off containers are started as <strong>attached</strong> command, it means it
+will only get started when a terminal interactively connect to it through the
+<a href="/one-off.html">one-off endpoint</a>. Once attached, data should be sent to the
+one-off or from it, otherwise the connection will be automatically closed after
+30 minutes and the container stopped. So for long interactive jobs, make sure
+the process is writing something to <em>stdout</em> or <em>stderr</em>.</p>
+
+<p>If the <code class="highlighter-rouge">detached</code> option is set to <code class="highlighter-rouge">true</code>, the container will be started as a
+background one-off container. In this case the container is started instantly
+logs from the job are aggregated to the total logs of the application. You have
+to make sure this job ends at some point.</p>
 
 </div><div class='col-xs-12 col-sm-6 sidebar-code'>
 <p>Example request:</p>

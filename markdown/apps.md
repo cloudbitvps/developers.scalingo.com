@@ -541,23 +541,32 @@ Similar to `scalingo run`
 
 `POST https://api.scalingo.com/v1/apps/[:app]/run`
 
-To run an interactive task, you have to start a one-off container. As its name
+To run a n interactive task, you have to start a one-off container. As its name
 mean it's a container you will start for a given task and which will be
 destroyed after it. It can be any command which will be executed in the
 environment your application.
 
-<blockquote>
-  We do not handle detached commands yet, each one-off container has to be
-  attached to be executed, to be canceled after 5 minutes if it hasn't.
-</blockquote>
-
-See [how to handle the returned `attach_url`](/one-off.html)
-
 ### Parameters
 
-* `command`: Command line which has to be run (example: "bash")
-* `env`: Environment variables to inject into the container (additionaly to those of your apps)
-* `size`: Size of the container (e.g. S, M, etc). The size by default is M.
+* `command` (*string* **required**): Command line which has to be run (example: "bash")
+* `env` (*object*): Environment variables to inject into the container (additionaly to those of your apps)
+* `size` (*string*, default `"M"`): Size of the container (e.g. S, M, etc)
+* `detached` (*boolean*, default `false`): Foreground task by default, set to `true` if the container has to be run in background.
+
+
+### Background vs Foreground one-off
+
+By default one-off containers are started as **attached** command, it means it
+will only get started when a terminal interactively connect to it through the
+[one-off endpoint](/one-off.html). Once attached, data should be sent to the
+one-off or from it, otherwise the connection will be automatically closed after
+30 minutes and the container stopped. So for long interactive jobs, make sure
+the process is writing something to *stdout* or *stderr*.
+
+If the `detached` option is set to `true`, the container will be started as a
+background one-off container. In this case the container is started instantly
+logs from the job are aggregated to the total logs of the application. You have
+to make sure this job ends at some point.
 
 ||| col |||
 
