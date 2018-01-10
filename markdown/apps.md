@@ -541,10 +541,10 @@ Similar to `scalingo run`
 
 `POST https://api.scalingo.com/v1/apps/[:app]/run`
 
-To run a n interactive task, you have to start a one-off container. As its name
-mean it's a container you will start for a given task and which will be
-destroyed after it. It can be any command which will be executed in the
-environment your application.
+To run a batch job, or an administrative task, you have to start a one-off
+container. As its name mean it's a container you will start for a given task
+and which will be destroyed after it. It can be any command which will be
+executed in the environment your application.
 
 ### Parameters
 
